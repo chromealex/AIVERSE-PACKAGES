@@ -1,0 +1,117 @@
+{
+  "schema": 2,
+  "id": "terraweave-rocks",
+  "version": "1.0.0",
+  "kind": "content",
+  "category": "models",
+  "title": "TerraWeave rocks",
+  "title-ru": "Камни TerraWeave",
+  "summary": "12 stones and boulders in four shapes (rounded, boulder, slab, shard), three LODs each, on the terrain-pbr rock material.",
+  "summary-ru": "12 камней и валунов четырёх форм (округлые, угловатые, плиты, осколки), по три LOD, на материале скалы из terrain-pbr.",
+  "description": "Made by the engine tool aiverse_terraweave_rocks (seed 42). Each model has 1280 / 320 / 80 triangles. The textures are not copied: the models refer to materials/terrain/textures of the terrain-pbr package, which is installed with this one.",
+  "description-ru": "Сделаны инструментом движка aiverse_terraweave_rocks (seed 42). У каждой модели 1280 / 320 / 80 треугольников. Текстуры не копируются: модели ссылаются на materials/terrain/textures пакета terrain-pbr, он ставится вместе с этим.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "terraweave",
+    "rocks",
+    "stones",
+    "boulders",
+    "lod",
+    "nature"
+  ],
+  "provides": {
+    "models": [
+      "rock-0.gltf",
+      "rock-1.gltf",
+      "rock-2.gltf",
+      "rock-3.gltf",
+      "rock-4.gltf",
+      "rock-5.gltf",
+      "rock-6.gltf",
+      "rock-7.gltf",
+      "rock-8.gltf",
+      "rock-9.gltf",
+      "rock-10.gltf",
+      "rock-11.gltf"
+    ]
+  },
+  "dependencies": {
+    "terrain-pbr": "^1.0"
+  },
+  "install": {
+    "mount": "models/terraweave/rocks"
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "viewer": {
+    "kind": "models",
+    "items": [
+      {
+        "model": "rock-0.gltf",
+        "title": "Rounded stone 1",
+        "title-ru": "Округлый камень 1"
+      },
+      {
+        "model": "rock-1.gltf",
+        "title": "Angular boulder 1",
+        "title-ru": "Угловатый валун 1"
+      },
+      {
+        "model": "rock-2.gltf",
+        "title": "Flat slab 1",
+        "title-ru": "Плоская плита 1"
+      },
+      {
+        "model": "rock-3.gltf",
+        "title": "Tall shard 1",
+        "title-ru": "Высокий осколок 1"
+      },
+      {
+        "model": "rock-4.gltf",
+        "title": "Rounded stone 2",
+        "title-ru": "Округлый камень 2"
+      },
+      {
+        "model": "rock-5.gltf",
+        "title": "Angular boulder 2",
+        "title-ru": "Угловатый валун 2"
+      },
+      {
+        "model": "rock-6.gltf",
+        "title": "Flat slab 2",
+        "title-ru": "Плоская плита 2"
+      },
+      {
+        "model": "rock-7.gltf",
+        "title": "Tall shard 2",
+        "title-ru": "Высокий осколок 2"
+      },
+      {
+        "model": "rock-8.gltf",
+        "title": "Rounded stone 3",
+        "title-ru": "Округлый камень 3"
+      },
+      {
+        "model": "rock-9.gltf",
+        "title": "Angular boulder 3",
+        "title-ru": "Угловатый валун 3"
+      },
+      {
+        "model": "rock-10.gltf",
+        "title": "Flat slab 3",
+        "title-ru": "Плоская плита 3"
+      },
+      {
+        "model": "rock-11.gltf",
+        "title": "Tall shard 3",
+        "title-ru": "Высокий осколок 3"
+      }
+    ]
+  }
+}
