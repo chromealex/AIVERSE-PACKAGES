@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "version": "1.0.0",
+  "license": "MIT",
+  "minEngine": "2.2.0",
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "id": "terrain-pbr",
+  "kind": "content",
+  "category": "materials",
+  "title": "PBR-материалы ландшафта",
+  "titleEn": "Terrain PBR materials",
+  "summary": "14 бесшовных PBR-материалов ландшафта 1024²: трава, почвы, пески, камень, снег и нейтральная шахматка.",
+  "summaryEn": "14 seamless 1024² terrain PBR materials: grass, soils, sands, rock, snow and a neutral checkerboard.",
+  "description": "Базовый цвет, нормаль (+Y OpenGL), ORM, AO, 16-битная высота и упакованные карты terrain_color / terrain_normal для адаптера ландшафта. Ставится в materials/terrain проекта, библиотека материалов сливается в materials.json.",
+  "descriptionEn": "Base color, normal (+Y OpenGL), ORM, AO, 16-bit height and packed terrain_color / terrain_normal maps for the terrain adapter. Installs into the project materials/terrain; the material library merges into materials.json.",
+  "tags": [
+    "terrain",
+    "pbr",
+    "terraweave",
+    "ground",
+    "textures"
+  ],
+  "provides": {
+    "materials": [
+      "terrain_checkerboard",
+      "terrain_forest_floor",
+      "terrain_granite_rock",
+      "terrain_grass",
+      "terrain_gravel_soil",
+      "terrain_pebble_sand",
+      "terrain_river_sand",
+      "terrain_rock",
+      "terrain_sand",
+      "terrain_schist_rock",
+      "terrain_snow",
+      "terrain_snow_crust",
+      "terrain_soil",
+      "terrain_wet_soil"
+    ]
+  },
+  "install": {
+    "mount": "materials/terrain",
+    "mergeJson": [
+      {
+        "from": "materials.json",
+        "into": "materials.json"
+      }
+    ]
+  },
+  "previews": [
+    "preview.jpg",
+    "preview-2.jpg"
+  ],
+  "source": {
+    "repo": "chromealex/AIVERSE",
+    "commit": "bb3d910ed1493616be1057c53b5e59e19f5681fa",
+    "path": "engine/assets/materials/terrain"
+  }
+}

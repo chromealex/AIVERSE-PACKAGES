@@ -12,7 +12,8 @@
 
 Layout: <category>/<id>/aiverse.package.json, preview images, README.md and the payload: either a
 small files/ folder in git or "archive": {url, sha256, size} for a big package hosted elsewhere
-(publish copies it into this repository's release <id>@<version>). Standard library only;
+(publish copies it into this repository's release <id>@<version>),
+or "source": {repo, commit, path} — a folder of a public GitHub repository at a fixed commit. Standard library only;
 publishing needs the gh CLI with a token that can create releases.
 """
 from __future__ import annotations
@@ -205,10 +206,21 @@ def check_package(folder: Path, m: dict, seen: dict, index: dict) -> list[str]:
             err.append(f'{where}: preview {n} must be 640..2400 px wide (got {size[0]})')
     files = payload_files(folder)
     arch = m.get('archive')
-    if files and arch:
-        err.append(f'{where}: use either files/ or "archive", not both')
-    if not files and not arch:
-        err.append(f'{where}: no payload: add files/ (small packages) or "archive": {{url, sha256, size}}')
+    src = m.get('source')
+    modes = [k for k, v in (('files/', files), ('archive', arch), ('source', src)) if v]
+    if len(modes) > 1:
+        err.append(f'{where}: use either files/ or "archive" or "source", not {" + ".join(modes)}')
+    if not modes:
+        err.append(f'{where}: no payload: add files/ (small packages), "archive": {{url, sha256, size}} '
+                   f'or "source": {{repo, commit, path}}')
+    if src:
+        if not re.match(r'^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$', str(src.get('repo', ''))):
+            err.append(f'{where}: source.repo must be "owner/name" of a public GitHub repository')
+        if not re.match(r'^[0-9a-f]{40}$', str(src.get('commit', ''))):
+            err.append(f'{where}: source.commit must be a full 40-character commit hash (immutable)')
+        sp = Path(str(src.get('path', '')))
+        if not src.get('path') or sp.is_absolute() or '..' in sp.parts:
+            err.append(f'{where}: source.path must be a relative folder in that repository')
     if files:
         total = 0
         for rel in files:
@@ -311,6 +323,23 @@ def fetch(url: str, dest: Path) -> None:
         shutil.copyfileobj(r, out, 1 << 20)
 
 
+def checkout_source(src: dict, work: Path) -> Path:
+    """Sparse, blob-filtered checkout of <repo>@<commit>:<path>; returns the payload folder."""
+    d = work / ('src-' + src['commit'][:12] + '-' + re.sub(r'[^a-z0-9]+', '-', src['path'].lower()))
+    if not d.exists():
+        run = lambda *a: subprocess.run(['git', *a], cwd=d, check=True, capture_output=True, text=True)
+        d.mkdir(parents=True)
+        run('init', '-q')
+        run('remote', 'add', 'origin', f"https://github.com/{src['repo']}")
+        run('sparse-checkout', 'set', '--no-cone', '/' + src['path'].strip('/') + '/')
+        run('fetch', '-q', '--depth', '1', '--filter=blob:none', 'origin', src['commit'])
+        run('checkout', '-q', 'FETCH_HEAD')
+    payload = d / src['path']
+    if not payload.is_dir():
+        raise SystemExit(f"{src['repo']}@{src['commit'][:12]}: no folder {src['path']}")
+    return payload
+
+
 def gh(*args, check=True):
     return subprocess.run(['gh', *args], check=check, capture_output=True, text=True)
 
@@ -386,6 +415,9 @@ def publish(dry_run: bool) -> int:
             if sha != m['archive']['sha256']:
                 raise SystemExit(f'{tag}: sha256 {sha} does not match archive.sha256')
             archive = src
+        elif m.get('source'):
+            print(f"{tag}: building from {m['source']['repo']}@{m['source']['commit'][:12]}:{m['source']['path']}")
+            archive = build_zip(folder, m, work, checkout_source(m['source'], work))
         else:
             archive = build_zip(folder, m, work)
         stats = verify_archive(archive, m)

@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "version": "1.0.0",
+  "license": "MIT",
+  "minEngine": "2.2.0",
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "id": "terrain-pbr-sources",
+  "kind": "source",
+  "category": "textures",
+  "title": "Исходники PBR ландшафта",
+  "titleEn": "Terrain PBR sources",
+  "summary": "Исходные изображения альбедо и высоты, из которых запекается terrain-pbr. Нужны только для перепекания.",
+  "summaryEn": "Source albedo and height images that terrain-pbr is baked from. Only needed to re-bake the library.",
+  "tags": [
+    "terrain",
+    "pbr",
+    "source",
+    "authoring"
+  ],
+  "provides": {
+    "sourceOf": [
+      "terrain-pbr"
+    ]
+  },
+  "source": {
+    "repo": "chromealex/AIVERSE",
+    "commit": "bb3d910ed1493616be1057c53b5e59e19f5681fa",
+    "path": "tools/terrain/pbr_sources"
+  }
+}
