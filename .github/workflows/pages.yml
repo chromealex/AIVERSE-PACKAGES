@@ -22,7 +22,7 @@ concurrency:
   cancel-in-progress: true
 env:
   # Until the package-catalog branch is merged into main the viewer source lives there.
-  ENGINE_REF: ${{ inputs.engine_ref || 'feature/aiv20261122_packages' }}
+  ENGINE_REF: ${{ inputs.engine_ref || 'main' }}
 jobs:
   build:
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
