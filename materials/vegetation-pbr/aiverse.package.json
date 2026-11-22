@@ -12,6 +12,7 @@
   "description-ru": "Нужен ботаническому лесу TerraWeave (Arbor): кора и листва деревьев. Ставится в materials/vegetation проекта; редактор находит текстуры и в кэше пакетов.",
   "license": "MIT",
   "minEngine": "2.2.0",
+  "official": true,
   "authors": [
     "AIVERSE"
   ],

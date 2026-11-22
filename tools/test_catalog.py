@@ -43,6 +43,18 @@ def main():
         stats = catalog.verify_archive(a, m)
         assert stats['files'] == 3, stats  # payload x2 + README
 
+        # official packages: only AIVERSE as author, only from the owner's pull requests
+        import os
+        (pkg / catalog.MANIFEST).write_text(json.dumps(dict(m, official=True)))
+        assert any('authors' in e for e in catalog.check_all())
+        (pkg / catalog.MANIFEST).write_text(json.dumps(dict(m, official=True, authors=['AIVERSE'])))
+        own = lambda: [e for e in catalog.check_all() if 'top-level' not in e]
+        assert own() == []
+        os.environ.update(CATALOG_PR_AUTHOR='someone', CATALOG_OWNER='chromealex')
+        assert any('owner' in e for e in catalog.check_all())
+        os.environ['CATALOG_PR_AUTHOR'] = 'ChromeAlex'
+        assert own() == []
+        del os.environ['CATALOG_PR_AUTHOR'], os.environ['CATALOG_OWNER']
         (pkg / catalog.MANIFEST).write_text(json.dumps(dict(m, **{'title-xx': 'x'})))
         assert any('translations' in e for e in catalog.check_all())
         (pkg / catalog.MANIFEST).write_text(json.dumps(m))
@@ -67,6 +79,10 @@ def main():
         assert e['latest'] == '1.0.0' and e['versions']['1.0.0']['sha256'] == info['sha256']
         assert e['previews'][0].endswith('/preview.png')
 
+        (pkg / catalog.MANIFEST).write_text(json.dumps(dict(m, official=True, authors=['AIVERSE'])))
+        assert catalog.write_index({})['packages'][0].get('official') is True
+        (pkg / catalog.MANIFEST).write_text(json.dumps(m))
+        catalog.write_index({})
         # a published version is immutable and versions only go up
         (pkg / catalog.MANIFEST).write_text(json.dumps(dict(m, version='0.9.0')))
         assert any('older' in x for x in catalog.check_all())

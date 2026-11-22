@@ -12,6 +12,7 @@
   "description-ru": "Сделаны инструментом движка aiverse_terraweave_rocks (seed 42). У каждой модели 1280 / 320 / 80 треугольников. Текстуры не копируются: модели ссылаются на materials/terrain/textures пакета terrain-pbr, он ставится вместе с этим.",
   "license": "MIT",
   "minEngine": "3.1.0",
+  "official": true,
   "authors": [
     "AIVERSE"
   ],
