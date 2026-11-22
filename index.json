@@ -1,255 +1,90 @@
 {
-  "schema": 1,
-  "repo": "https://github.com/chromealex/AIVERSE-PLUGINS",
-  "pages": "https://chromealex.github.io/AIVERSE-PLUGINS",
+  "schema": 2,
+  "repo": "https://github.com/chromealex/AIVERSE-PACKAGES",
+  "pages": "https://chromealex.github.io/AIVERSE-PACKAGES",
+  "languages": [
+    "en",
+    "ru",
+    "zh-CN",
+    "ja",
+    "ko",
+    "es",
+    "pt-BR",
+    "de",
+    "fr"
+  ],
   "categories": [
     {
       "id": "templates",
-      "title": "Шаблоны проектов"
+      "title": "Project templates",
+      "title-ru": "Шаблоны проектов"
     },
     {
       "id": "materials",
-      "title": "Материалы"
+      "title": "Materials",
+      "title-ru": "Материалы"
     },
     {
       "id": "textures",
-      "title": "Текстуры"
+      "title": "Textures",
+      "title-ru": "Текстуры"
     },
     {
       "id": "models",
-      "title": "Модели"
+      "title": "Models",
+      "title-ru": "Модели"
     },
     {
       "id": "audio",
-      "title": "Звук и музыка"
+      "title": "Sound and music",
+      "title-ru": "Звук и музыка"
     },
     {
       "id": "vfx",
-      "title": "Эффекты"
+      "title": "Effects",
+      "title-ru": "Эффекты"
     },
     {
       "id": "ui",
-      "title": "Интерфейс"
+      "title": "Interface",
+      "title-ru": "Интерфейс"
     },
     {
       "id": "scripts",
-      "title": "Скрипты и механики"
+      "title": "Scripts and mechanics",
+      "title-ru": "Скрипты и механики"
     },
     {
       "id": "plugins",
-      "title": "Нативные плагины"
+      "title": "Native plugins",
+      "title-ru": "Нативные плагины"
     },
     {
       "id": "tools",
-      "title": "Инструменты"
+      "title": "Tools",
+      "title-ru": "Инструменты"
     }
   ],
   "packages": [
     {
       "id": "terrain-pbr",
-      "kind": "content",
       "category": "materials",
-      "path": "materials/terrain-pbr",
-      "title": "PBR-материалы ландшафта",
-      "titleEn": "Terrain PBR materials",
-      "summary": "14 бесшовных PBR-материалов ландшафта 1024²: трава, почвы, пески, камень, снег и нейтральная шахматка.",
-      "summaryEn": "14 seamless 1024² terrain PBR materials: grass, soils, sands, rock, snow and a neutral checkerboard.",
-      "description": "Базовый цвет, нормаль (+Y OpenGL), ORM, AO, 16-битная высота и упакованные карты terrain_color / terrain_normal для адаптера ландшафта. Ставится в materials/terrain проекта, библиотека материалов сливается в materials.json.",
-      "descriptionEn": "Base color, normal (+Y OpenGL), ORM, AO, 16-bit height and packed terrain_color / terrain_normal maps for the terrain adapter. Installs into the project materials/terrain; the material library merges into materials.json.",
-      "license": "MIT",
-      "tags": [
-        "terrain",
-        "pbr",
-        "terraweave",
-        "ground",
-        "textures"
-      ],
-      "authors": [
-        "AIVERSE"
-      ],
-      "homepage": "https://github.com/chromealex/AIVERSE",
-      "provides": {
-        "materials": [
-          "terrain_checkerboard",
-          "terrain_forest_floor",
-          "terrain_granite_rock",
-          "terrain_grass",
-          "terrain_gravel_soil",
-          "terrain_pebble_sand",
-          "terrain_river_sand",
-          "terrain_rock",
-          "terrain_sand",
-          "terrain_schist_rock",
-          "terrain_snow",
-          "terrain_snow_crust",
-          "terrain_soil",
-          "terrain_wet_soil"
-        ]
-      },
-      "mount": "materials/terrain",
-      "previews": [
-        "https://raw.githubusercontent.com/chromealex/AIVERSE-PLUGINS/main/materials/terrain-pbr/preview.jpg",
-        "https://raw.githubusercontent.com/chromealex/AIVERSE-PLUGINS/main/materials/terrain-pbr/preview-2.jpg"
-      ],
-      "viewer": {
-        "kind": "materials",
-        "url": "https://chromealex.github.io/AIVERSE-PLUGINS/viewer/?src=../view/terrain-pbr/1.0.0"
-      },
-      "readme": "https://github.com/chromealex/AIVERSE-PLUGINS/blob/main/materials/terrain-pbr/README.md",
-      "versions": {
-        "1.0.0": {
-          "url": "https://github.com/chromealex/AIVERSE-PLUGINS/releases/download/terrain-pbr@1.0.0/terrain-pbr-1.0.0.zip",
-          "sha256": "f8e520c092e50d04f3676f377d8e054cbcf6de83e3e6e7b89c1d4003f1a77868",
-          "size": 82512081,
-          "minEngine": "2.2.0",
-          "files": 130,
-          "unpackedSize": 82510260
-        }
-      },
-      "latest": "1.0.0"
+      "path": "materials/terrain-pbr"
     },
     {
       "id": "vegetation-pbr",
-      "kind": "content",
       "category": "materials",
-      "path": "materials/vegetation-pbr",
-      "title": "PBR-материалы растительности",
-      "titleEn": "Vegetation PBR materials",
-      "summary": "Кора дуба, сосны, берёзы и ели и восемь атласов листвы с картами PBR, проекцией коры и зимним снегом.",
-      "summaryEn": "Oak, pine, birch and spruce bark plus eight foliage atlases with PBR maps, bark projection and winter snow.",
-      "description": "Нужен ботаническому лесу TerraWeave (Arbor): кора и листва деревьев. Ставится в materials/vegetation проекта; редактор находит текстуры и в кэше пакетов.",
-      "descriptionEn": "Used by the TerraWeave (Arbor) botanical forest for bark and leaves. Installs into the project materials/vegetation; the editor also finds the textures in the package cache.",
-      "license": "MIT",
-      "tags": [
-        "vegetation",
-        "trees",
-        "bark",
-        "leaves",
-        "pbr",
-        "terraweave"
-      ],
-      "authors": [
-        "AIVERSE"
-      ],
-      "homepage": "https://github.com/chromealex/AIVERSE",
-      "provides": {
-        "materials": [
-          "apple_leaves",
-          "birch_bark",
-          "birch_leaves",
-          "maple_leaves",
-          "oak_bark",
-          "oak_leaves",
-          "pine_bark",
-          "pine_leaves",
-          "shrub_leaves",
-          "spruce_bark",
-          "spruce_leaves",
-          "willow_leaves"
-        ]
-      },
-      "mount": "materials/vegetation",
-      "previews": [
-        "https://raw.githubusercontent.com/chromealex/AIVERSE-PLUGINS/main/materials/vegetation-pbr/preview.jpg"
-      ],
-      "viewer": {
-        "kind": "materials",
-        "url": "https://chromealex.github.io/AIVERSE-PLUGINS/viewer/?src=../view/vegetation-pbr/1.0.0"
-      },
-      "readme": "https://github.com/chromealex/AIVERSE-PLUGINS/blob/main/materials/vegetation-pbr/README.md",
-      "versions": {
-        "1.0.0": {
-          "url": "https://github.com/chromealex/AIVERSE-PLUGINS/releases/download/vegetation-pbr@1.0.0/vegetation-pbr-1.0.0.zip",
-          "sha256": "004aa00f0ff002fb01f963a06c2fde4ee7bb6dd7870a35c61776a052df18a499",
-          "size": 68149444,
-          "minEngine": "2.2.0",
-          "files": 130,
-          "unpackedSize": 68400411
-        }
-      },
-      "latest": "1.0.0"
+      "path": "materials/vegetation-pbr"
     },
     {
       "id": "terrain-pbr-sources",
-      "kind": "source",
       "category": "textures",
-      "path": "textures/terrain-pbr-sources",
-      "title": "Исходники PBR ландшафта",
-      "titleEn": "Terrain PBR sources",
-      "summary": "Исходные изображения альбедо и высоты, из которых запекается terrain-pbr. Нужны только для перепекания.",
-      "summaryEn": "Source albedo and height images that terrain-pbr is baked from. Only needed to re-bake the library.",
-      "license": "MIT",
-      "tags": [
-        "terrain",
-        "pbr",
-        "source",
-        "authoring"
-      ],
-      "authors": [
-        "AIVERSE"
-      ],
-      "homepage": "https://github.com/chromealex/AIVERSE",
-      "provides": {
-        "sourceOf": [
-          "terrain-pbr"
-        ]
-      },
-      "previews": [
-        "https://raw.githubusercontent.com/chromealex/AIVERSE-PLUGINS/main/textures/terrain-pbr-sources/preview.jpg"
-      ],
-      "readme": "https://github.com/chromealex/AIVERSE-PLUGINS/blob/main/textures/terrain-pbr-sources/README.md",
-      "versions": {
-        "1.0.0": {
-          "url": "https://github.com/chromealex/AIVERSE-PLUGINS/releases/download/terrain-pbr-sources@1.0.0/terrain-pbr-sources-1.0.0.zip",
-          "sha256": "f1d9de664c2558b4623edf7206909ad375cb8ebd00bf2c6761f5dff170fad06f",
-          "size": 81739312,
-          "minEngine": "2.2.0",
-          "files": 35,
-          "unpackedSize": 81737193
-        }
-      },
-      "latest": "1.0.0"
+      "path": "textures/terrain-pbr-sources"
     },
     {
       "id": "vegetation-pbr-sources",
-      "kind": "source",
       "category": "textures",
-      "path": "textures/vegetation-pbr-sources",
-      "title": "Исходники PBR растительности",
-      "titleEn": "Vegetation PBR sources",
-      "summary": "Исходные изображения коры и атласов листвы, из которых запекается vegetation-pbr. Нужны только для перепекания.",
-      "summaryEn": "Source bark images and leaf atlases that vegetation-pbr is baked from. Only needed to re-bake the library.",
-      "license": "MIT",
-      "tags": [
-        "vegetation",
-        "pbr",
-        "source",
-        "authoring"
-      ],
-      "authors": [
-        "AIVERSE"
-      ],
-      "homepage": "https://github.com/chromealex/AIVERSE",
-      "provides": {
-        "sourceOf": [
-          "vegetation-pbr"
-        ]
-      },
-      "previews": [
-        "https://raw.githubusercontent.com/chromealex/AIVERSE-PLUGINS/main/textures/vegetation-pbr-sources/preview.jpg"
-      ],
-      "readme": "https://github.com/chromealex/AIVERSE-PLUGINS/blob/main/textures/vegetation-pbr-sources/README.md",
-      "versions": {
-        "1.0.0": {
-          "url": "https://github.com/chromealex/AIVERSE-PLUGINS/releases/download/vegetation-pbr-sources@1.0.0/vegetation-pbr-sources-1.0.0.zip",
-          "sha256": "bfb0fa5499511ae5eb3c29eb8857700638f0726be985fd0f74adeff649fe43da",
-          "size": 39781958,
-          "minEngine": "2.2.0",
-          "files": 20,
-          "unpackedSize": 39781222
-        }
-      },
-      "latest": "1.0.0"
+      "path": "textures/vegetation-pbr-sources"
     }
   ]
 }

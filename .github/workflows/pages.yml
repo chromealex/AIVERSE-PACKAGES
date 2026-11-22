@@ -1,5 +1,5 @@
 name: pages
-# GitHub Pages of the catalog (https://chromealex.github.io/AIVERSE-PLUGINS/):
+# GitHub Pages of the catalog (https://chromealex.github.io/AIVERSE-PACKAGES/):
 #   viewer/          the engine's web package preview (apps/catalogview, built with Emscripten)
 #   view/<id>/<ver>/ preview files of every package that has a "viewer" block (tools/catalog.py views)
 #   index.json       a copy of the catalog index

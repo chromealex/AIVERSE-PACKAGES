@@ -1,19 +1,19 @@
 {
-  "schema": 1,
+  "schema": 2,
+  "id": "vegetation-pbr-sources",
   "version": "1.0.0",
+  "kind": "source",
+  "category": "textures",
+  "title": "Vegetation PBR sources",
+  "title-ru": "Исходники PBR растительности",
+  "summary": "Source bark images and leaf atlases that vegetation-pbr is baked from. Only needed to re-bake the library.",
+  "summary-ru": "Исходные изображения коры и атласов листвы, из которых запекается vegetation-pbr. Нужны только для перепекания.",
   "license": "MIT",
   "minEngine": "2.2.0",
   "authors": [
     "AIVERSE"
   ],
   "homepage": "https://github.com/chromealex/AIVERSE",
-  "id": "vegetation-pbr-sources",
-  "kind": "source",
-  "category": "textures",
-  "title": "Исходники PBR растительности",
-  "titleEn": "Vegetation PBR sources",
-  "summary": "Исходные изображения коры и атласов листвы, из которых запекается vegetation-pbr. Нужны только для перепекания.",
-  "summaryEn": "Source bark images and leaf atlases that vegetation-pbr is baked from. Only needed to re-bake the library.",
   "tags": [
     "vegetation",
     "pbr",

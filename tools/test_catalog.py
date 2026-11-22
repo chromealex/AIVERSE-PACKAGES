@@ -30,7 +30,7 @@ def main():
         (pkg / 'README.md').write_text('# demo')
         (pkg / 'preview.png').write_bytes(png(800, 450))
         m = {'schema': 1, 'id': 'demo-mats', 'version': '1.0.0', 'kind': 'content', 'category': 'materials',
-             'title': 'Демо', 'titleEn': 'Demo', 'summary': 'с', 'summaryEn': 's', 'license': 'MIT',
+             'title': 'Demo', 'title-ru': 'Демо', 'summary': 's', 'summary-ru': 'с', 'license': 'MIT',
              'minEngine': '2.2.0', 'install': {'mount': 'materials/demo',
                                                'mergeJson': [{'from': 'materials.json', 'into': 'materials.json'}]}}
         (pkg / catalog.MANIFEST).write_text(json.dumps(m))
@@ -42,6 +42,10 @@ def main():
         assert a.read_bytes() == b.read_bytes(), 'archives must be reproducible'
         stats = catalog.verify_archive(a, m)
         assert stats['files'] == 3, stats  # payload x2 + README
+
+        (pkg / catalog.MANIFEST).write_text(json.dumps(dict(m, **{'title-xx': 'x'})))
+        assert any('translations' in e for e in catalog.check_all())
+        (pkg / catalog.MANIFEST).write_text(json.dumps(m))
 
         bad = dict(m, category='textures', license='GPL-3.0', extra=1)
         (pkg / catalog.MANIFEST).write_text(json.dumps(bad))
@@ -56,8 +60,12 @@ def main():
         info = {'url': 'https://x/demo.zip', 'sha256': catalog.sha256_file(a), 'size': a.stat().st_size,
                 'minEngine': '2.2.0', **stats}
         index = catalog.write_index({'demo-mats': info})
-        e = index['packages'][0]
-        assert e['latest'] == '1.0.0' and e['mount'] == 'materials/demo' and e['previews'][0].endswith('/preview.png')
+        assert index['schema'] == 2 and index['packages'] == [{'id': 'demo-mats', 'category': 'materials',
+                                                               'path': 'materials/demo-mats'}], index
+        assert index['categories'][1] == {'id': 'materials', 'title': 'Materials', 'title-ru': 'Материалы'}
+        e = json.loads((pkg / catalog.VERSIONS).read_text())
+        assert e['latest'] == '1.0.0' and e['versions']['1.0.0']['sha256'] == info['sha256']
+        assert e['previews'][0].endswith('/preview.png')
 
         # a published version is immutable and versions only go up
         (pkg / catalog.MANIFEST).write_text(json.dumps(dict(m, version='0.9.0')))
@@ -65,6 +73,23 @@ def main():
         (pkg / catalog.MANIFEST).write_text(json.dumps(dict(m, archive={'url': 'https://x', 'sha256': 'f' * 64, 'size': 1})))
         errs = catalog.check_all()
         assert any('either files/' in x for x in errs), errs
+        # accept: a pull request's files/ become an archive; the package reaches main without them
+        (pkg / catalog.MANIFEST).write_text(json.dumps(m))
+        pr = root.parent / (root.name + '-pr')
+        import shutil
+        shutil.copytree(root / 'materials', pr / 'materials')
+        newpkg = pr / 'materials' / 'demo-more'
+        shutil.copytree(pkg, newpkg)
+        (newpkg / catalog.VERSIONS).unlink()
+        (newpkg / catalog.MANIFEST).write_text(json.dumps(dict(m, id='demo-more', install={'mount': 'materials/more'})))
+        done = catalog.accept(pr, '7', dry_run=True)
+        assert done and done[0].startswith('demo-more@1.0.0'), done
+        got = root / 'materials' / 'demo-more'
+        assert not (got / 'files').exists() and (got / 'README.md').is_file()
+        acc = json.loads((got / catalog.MANIFEST).read_text())
+        assert acc['archive']['url'].endswith('/demo-more@1.0.0/demo-more-1.0.0.zip'), acc
+        assert [e for e in catalog.check_all() if 'top-level' not in e] == []
+        shutil.rmtree(pr)
     print('catalog self-test: ok')
 
 

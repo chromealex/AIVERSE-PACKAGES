@@ -1,0 +1,18 @@
+{
+  "id": "terrain-pbr-sources",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/terrain-pbr-sources@1.0.0/terrain-pbr-sources-1.0.0.zip",
+      "sha256": "f1d9de664c2558b4623edf7206909ad375cb8ebd00bf2c6761f5dff170fad06f",
+      "size": 81739312,
+      "minEngine": "2.2.0",
+      "files": 35,
+      "unpackedSize": 81737193
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/textures/terrain-pbr-sources/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/textures/terrain-pbr-sources/README.md"
+}

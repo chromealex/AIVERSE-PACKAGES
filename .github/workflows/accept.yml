@@ -1,0 +1,59 @@
+name: accept
+# The owner accepts a package pull request by adding the label "accept" (instead of pressing Merge).
+# The PR's files/ are turned into release archives <id>@<version>; the packages are committed to main
+# without files/ (manifests get "archive"), versions.json and index.json are updated, the PR is closed.
+# So uploaded payloads (up to 2 GB) never enter the history of main or of anyone's clone.
+# Safety: runs with the base repository's code; the PR checkout is only read as data.
+on:
+  pull_request_target:
+    types: [labeled]
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: publish
+  cancel-in-progress: false
+jobs:
+  accept:
+    if: github.event.label.name == 'accept' && github.event.sender.login == github.repository_owner
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - name: PR files (data only)
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: _pr
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Release the new versions, copy packages without files/
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/catalog.py accept --from _pr --pr ${{ github.event.pull_request.number }} | tee accept.log
+      - name: Commit to main and close the pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          rm -rf _pr
+          git config user.name "aiverse-catalog"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A -- . ':!accept.log'
+          if git diff --cached --quiet; then
+            gh pr comment "$PR" --body "Nothing new to accept: no package version that is not published yet."
+            exit 0
+          fi
+          git commit -m "Accept #$PR: $TITLE" -m "Packages from @$AUTHOR; payload released as archives (not in git)."
+          git push origin HEAD:main
+          SHA=$(git rev-parse --short HEAD)
+          LIST=$(python3 -c "import json;print('\n'.join('- '+x for x in json.loads(open('accept.log').read().splitlines()[-1])['accepted']))")
+          gh pr comment "$PR" --body "Accepted in $SHA. Released:
+          $LIST
+
+          The files of this pull request were packed into the release archives and are not kept in the repository history. Thank you!"
+          gh pr close "$PR"
