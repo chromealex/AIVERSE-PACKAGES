@@ -1,0 +1,19 @@
+{
+  "id": "terraweave-trees",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/terraweave-trees@1.0.0/terraweave-trees-1.0.0.zip",
+      "sha256": "4bcc168993041add07b6d88db33e8108ae22c9efa2a7c90bf80f5124086f3e5a",
+      "size": 8480579,
+      "minEngine": "3.1.0",
+      "files": 32,
+      "unpackedSize": 16967944
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/models/terraweave-trees/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/models/terraweave-trees/README.md",
+  "viewer": "https://chromealex.github.io/AIVERSE-PACKAGES/viewer/?src=../view/terraweave-trees/1.0.0"
+}

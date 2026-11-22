@@ -1,0 +1,111 @@
+{
+  "schema": 2,
+  "id": "terraweave-trees",
+  "version": "1.0.0",
+  "kind": "content",
+  "category": "models",
+  "title": "TerraWeave trees",
+  "title-ru": "Деревья TerraWeave",
+  "summary": "Ten tree species from the TerraWeave Arbor generator: spruce, pine, fir, larch, oak, birch, maple, apple, willow, poplar; three LODs each.",
+  "summary-ru": "Десять пород деревьев генератора TerraWeave Arbor: ель, сосна, пихта, лиственница, дуб, берёза, клён, яблоня, ива, тополь; по три LOD.",
+  "description": "Made by the engine tool aiverse_terraweave_vegetation (botanical catalog, summer, mature, seed 42). 5 000–10 500 triangles at LOD 0. The textures are not copied: the models refer to materials/vegetation/textures of the vegetation-pbr package, which is installed with this one. For forests placed and grown by the engine itself use the TerraWeave forest; these models are for hand placement.",
+  "description-ru": "Сделаны инструментом движка aiverse_terraweave_vegetation (ботанический каталог, лето, взрослые деревья, seed 42). 5 000–10 500 треугольников в LOD 0. Текстуры не копируются: модели ссылаются на materials/vegetation/textures пакета vegetation-pbr, он ставится вместе с этим. Для леса, который движок сам расставляет и растит, используйте лес TerraWeave; эти модели — для ручной расстановки.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "terraweave",
+    "arbor",
+    "trees",
+    "forest",
+    "vegetation",
+    "lod",
+    "nature"
+  ],
+  "provides": {
+    "models": [
+      "tree-0.gltf",
+      "tree-1.gltf",
+      "tree-2.gltf",
+      "tree-3.gltf",
+      "tree-4.gltf",
+      "tree-5.gltf",
+      "tree-6.gltf",
+      "tree-7.gltf",
+      "tree-8.gltf",
+      "tree-9.gltf"
+    ]
+  },
+  "dependencies": {
+    "vegetation-pbr": "^1.0"
+  },
+  "install": {
+    "mount": "models/terraweave/trees"
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "viewer": {
+    "kind": "models",
+    "items": [
+      {
+        "model": "tree-0.gltf",
+        "title": "Spruce",
+        "title-ru": "Ель"
+      },
+      {
+        "model": "tree-1.gltf",
+        "title": "Pine",
+        "title-ru": "Сосна"
+      },
+      {
+        "model": "tree-2.gltf",
+        "title": "Fir",
+        "title-ru": "Пихта"
+      },
+      {
+        "model": "tree-3.gltf",
+        "title": "Larch",
+        "title-ru": "Лиственница"
+      },
+      {
+        "model": "tree-4.gltf",
+        "title": "Oak",
+        "title-ru": "Дуб"
+      },
+      {
+        "model": "tree-5.gltf",
+        "title": "Birch",
+        "title-ru": "Берёза"
+      },
+      {
+        "model": "tree-6.gltf",
+        "title": "Maple",
+        "title-ru": "Клён"
+      },
+      {
+        "model": "tree-7.gltf",
+        "title": "Apple tree",
+        "title-ru": "Яблоня"
+      },
+      {
+        "model": "tree-8.gltf",
+        "title": "Willow",
+        "title-ru": "Ива"
+      },
+      {
+        "model": "tree-9.gltf",
+        "title": "Poplar",
+        "title-ru": "Тополь"
+      }
+    ]
+  },
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/terraweave-trees@1.0.0/terraweave-trees-1.0.0.zip",
+    "sha256": "4bcc168993041add07b6d88db33e8108ae22c9efa2a7c90bf80f5124086f3e5a",
+    "size": 8480579
+  }
+}

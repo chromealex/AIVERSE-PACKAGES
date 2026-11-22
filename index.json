@@ -77,6 +77,16 @@
       "path": "materials/vegetation-pbr"
     },
     {
+      "id": "terraweave-rocks",
+      "category": "models",
+      "path": "models/terraweave-rocks"
+    },
+    {
+      "id": "terraweave-trees",
+      "category": "models",
+      "path": "models/terraweave-trees"
+    },
+    {
       "id": "terrain-pbr-sources",
       "category": "textures",
       "path": "textures/terrain-pbr-sources"

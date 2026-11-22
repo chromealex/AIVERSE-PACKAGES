@@ -1,0 +1,19 @@
+{
+  "id": "terraweave-rocks",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/terraweave-rocks@1.0.0/terraweave-rocks-1.0.0.zip",
+      "sha256": "aa6642f451a025fb2c336b9ae170fcabd965e80f23e24dc8398e02cae673f8e5",
+      "size": 1353844,
+      "minEngine": "3.1.0",
+      "files": 26,
+      "unpackedSize": 4162036
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/models/terraweave-rocks/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/models/terraweave-rocks/README.md",
+  "viewer": "https://chromealex.github.io/AIVERSE-PACKAGES/viewer/?src=../view/terraweave-rocks/1.0.0"
+}
