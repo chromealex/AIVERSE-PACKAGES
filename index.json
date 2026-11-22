@@ -1,6 +1,7 @@
 {
   "schema": 1,
   "repo": "https://github.com/chromealex/AIVERSE-PLUGINS",
+  "pages": "https://chromealex.github.io/AIVERSE-PLUGINS",
   "categories": [
     {
       "id": "templates",
@@ -90,6 +91,10 @@
         "https://raw.githubusercontent.com/chromealex/AIVERSE-PLUGINS/main/materials/terrain-pbr/preview.jpg",
         "https://raw.githubusercontent.com/chromealex/AIVERSE-PLUGINS/main/materials/terrain-pbr/preview-2.jpg"
       ],
+      "viewer": {
+        "kind": "materials",
+        "url": "https://chromealex.github.io/AIVERSE-PLUGINS/viewer/?src=../view/terrain-pbr/1.0.0"
+      },
       "readme": "https://github.com/chromealex/AIVERSE-PLUGINS/blob/main/materials/terrain-pbr/README.md",
       "versions": {
         "1.0.0": {
@@ -147,6 +152,10 @@
       "previews": [
         "https://raw.githubusercontent.com/chromealex/AIVERSE-PLUGINS/main/materials/vegetation-pbr/preview.jpg"
       ],
+      "viewer": {
+        "kind": "materials",
+        "url": "https://chromealex.github.io/AIVERSE-PLUGINS/viewer/?src=../view/vegetation-pbr/1.0.0"
+      },
       "readme": "https://github.com/chromealex/AIVERSE-PLUGINS/blob/main/materials/vegetation-pbr/README.md",
       "versions": {
         "1.0.0": {
