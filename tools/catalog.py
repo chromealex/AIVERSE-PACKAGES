@@ -437,7 +437,13 @@ def publish(dry_run: bool) -> int:
                     gh('release', 'upload', tag, str(archive), '--repo', REPO)
                 print(f'{tag}: released')
             else:
-                print(f'{tag}: release already has {name}')
+                # Never index a rebuilt archive's hash for an asset that already exists: hash the
+                # published file itself (deflate output can differ between zlib versions).
+                pub = work / ('published-' + name)
+                fetch(existing[0], pub)
+                verify_archive(pub, m)
+                info.update(sha256=sha256_file(pub), size=pub.stat().st_size)
+                print(f'{tag}: release already has {name}; indexed its own sha256')
         new_versions[m['id']] = info
     if not dry_run:
         write_index(new_versions)
