@@ -10,6 +10,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write   # pushes by this token start no workflows: the web previews are started explicitly
 concurrency:
   group: publish
   cancel-in-progress: false
@@ -57,3 +58,4 @@ jobs:
 
           The files of this pull request were packed into the release archives and are not kept in the repository history. Thank you!"
           gh pr close "$PR"
+          gh workflow run pages.yml --repo "$GITHUB_REPOSITORY" --ref main
