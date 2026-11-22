@@ -1,21 +1,21 @@
 {
-  "schema": 1,
+  "schema": 2,
+  "id": "terrain-pbr",
   "version": "1.0.0",
+  "kind": "content",
+  "category": "materials",
+  "title": "Terrain PBR materials",
+  "title-ru": "PBR-материалы ландшафта",
+  "summary": "14 seamless 1024² terrain PBR materials: grass, soils, sands, rock, snow and a neutral checkerboard.",
+  "summary-ru": "14 бесшовных PBR-материалов ландшафта 1024²: трава, почвы, пески, камень, снег и нейтральная шахматка.",
+  "description": "Base color, normal (+Y OpenGL), ORM, AO, 16-bit height and packed terrain_color / terrain_normal maps for the terrain adapter. Installs into the project materials/terrain; the material library merges into materials.json.",
+  "description-ru": "Базовый цвет, нормаль (+Y OpenGL), ORM, AO, 16-битная высота и упакованные карты terrain_color / terrain_normal для адаптера ландшафта. Ставится в materials/terrain проекта, библиотека материалов сливается в materials.json.",
   "license": "MIT",
   "minEngine": "2.2.0",
   "authors": [
     "AIVERSE"
   ],
   "homepage": "https://github.com/chromealex/AIVERSE",
-  "id": "terrain-pbr",
-  "kind": "content",
-  "category": "materials",
-  "title": "PBR-материалы ландшафта",
-  "titleEn": "Terrain PBR materials",
-  "summary": "14 бесшовных PBR-материалов ландшафта 1024²: трава, почвы, пески, камень, снег и нейтральная шахматка.",
-  "summaryEn": "14 seamless 1024² terrain PBR materials: grass, soils, sands, rock, snow and a neutral checkerboard.",
-  "description": "Базовый цвет, нормаль (+Y OpenGL), ORM, AO, 16-битная высота и упакованные карты terrain_color / terrain_normal для адаптера ландшафта. Ставится в materials/terrain проекта, библиотека материалов сливается в materials.json.",
-  "descriptionEn": "Base color, normal (+Y OpenGL), ORM, AO, 16-bit height and packed terrain_color / terrain_normal maps for the terrain adapter. Installs into the project materials/terrain; the material library merges into materials.json.",
   "tags": [
     "terrain",
     "pbr",
@@ -63,52 +63,76 @@
     "kind": "materials",
     "library": "materials.json",
     "items": [
-      "terrain_grass",
-      "terrain_forest_floor",
-      "terrain_soil",
-      "terrain_wet_soil",
-      "terrain_gravel_soil",
-      "terrain_sand",
-      "terrain_river_sand",
-      "terrain_pebble_sand",
-      "terrain_rock",
-      "terrain_granite_rock",
-      "terrain_schist_rock",
-      "terrain_snow",
-      "terrain_snow_crust",
-      "terrain_checkerboard"
-    ],
-    "titles": {
-      "terrain_grass": "Grass",
-      "terrain_forest_floor": "Forest floor",
-      "terrain_soil": "Soil",
-      "terrain_wet_soil": "Wet soil",
-      "terrain_gravel_soil": "Gravel soil",
-      "terrain_sand": "Sand",
-      "terrain_river_sand": "River sand",
-      "terrain_pebble_sand": "Pebble sand",
-      "terrain_rock": "Rock",
-      "terrain_granite_rock": "Granite rock",
-      "terrain_schist_rock": "Schist rock",
-      "terrain_snow": "Snow",
-      "terrain_snow_crust": "Snow crust",
-      "terrain_checkerboard": "Checkerboard"
-    },
-    "repeat": {
-      "terrain_grass": 2.0,
-      "terrain_soil": 2.0,
-      "terrain_sand": 2.0,
-      "terrain_rock": 2.0,
-      "terrain_snow": 2.0,
-      "terrain_forest_floor": 2.0,
-      "terrain_wet_soil": 2.0,
-      "terrain_gravel_soil": 2.0,
-      "terrain_snow_crust": 2.0,
-      "terrain_river_sand": 4.0,
-      "terrain_pebble_sand": 4.0,
-      "terrain_granite_rock": 4.0,
-      "terrain_schist_rock": 4.0,
-      "terrain_checkerboard": 4.0
-    }
+      {
+        "id": "terrain_grass",
+        "title": "Grass",
+        "repeat": 2.0
+      },
+      {
+        "id": "terrain_forest_floor",
+        "title": "Forest floor",
+        "repeat": 2.0
+      },
+      {
+        "id": "terrain_soil",
+        "title": "Soil",
+        "repeat": 2.0
+      },
+      {
+        "id": "terrain_wet_soil",
+        "title": "Wet soil",
+        "repeat": 2.0
+      },
+      {
+        "id": "terrain_gravel_soil",
+        "title": "Gravel soil",
+        "repeat": 2.0
+      },
+      {
+        "id": "terrain_sand",
+        "title": "Sand",
+        "repeat": 2.0
+      },
+      {
+        "id": "terrain_river_sand",
+        "title": "River sand",
+        "repeat": 4.0
+      },
+      {
+        "id": "terrain_pebble_sand",
+        "title": "Pebble sand",
+        "repeat": 4.0
+      },
+      {
+        "id": "terrain_rock",
+        "title": "Rock",
+        "repeat": 2.0
+      },
+      {
+        "id": "terrain_granite_rock",
+        "title": "Granite rock",
+        "repeat": 4.0
+      },
+      {
+        "id": "terrain_schist_rock",
+        "title": "Schist rock",
+        "repeat": 4.0
+      },
+      {
+        "id": "terrain_snow",
+        "title": "Snow",
+        "repeat": 2.0
+      },
+      {
+        "id": "terrain_snow_crust",
+        "title": "Snow crust",
+        "repeat": 2.0
+      },
+      {
+        "id": "terrain_checkerboard",
+        "title": "Checkerboard",
+        "repeat": 4.0
+      }
+    ]
   }
 }

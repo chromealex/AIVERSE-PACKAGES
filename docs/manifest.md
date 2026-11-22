@@ -2,17 +2,17 @@
 
 ```json
 {
-  "schema": 1,
+  "schema": 2,
   "id": "terrain-pbr",
   "version": "1.0.0",
   "kind": "content",
   "category": "materials",
-  "title": "PBR-материалы ландшафта",
-  "titleEn": "Terrain PBR materials",
-  "summary": "До 240 символов — карточка каталога.",
-  "summaryEn": "Up to 240 characters — the catalog card.",
+  "title": "Terrain PBR materials",
+  "title-ru": "PBR-материалы ландшафта",
+  "summary": "Up to 240 characters — the catalog card.",
+  "summary-ru": "До 240 символов — карточка каталога.",
   "description": "Longer text on the website (optional).",
-  "descriptionEn": "…",
+  "description-ru": "…",
   "license": "MIT",
   "minEngine": "2.2.0",
   "authors": ["AIVERSE"],
@@ -35,7 +35,7 @@
 | `version` | `MAJOR.MINOR.PATCH`; a published version is immutable |
 | `kind` | how the engine treats it: `content` (copied into a project), `template` (a new project is created from it), `source` (authoring sources, only fetched into the cache), `script`, `plugin`, `tool` |
 | `category` | catalog section, equals the parent folder: `templates`, `materials`, `textures`, `models`, `audio`, `vfx`, `ui`, `scripts`, `plugins`, `tools` |
-| `title` / `titleEn`, `summary` / `summaryEn`, `description` / `descriptionEn` | Russian and English texts of the website card |
+| `title`, `summary`, `description` | texts of the website card in **English**; translations are `<key>-<lang>`: `title-ru`, `summary-zh-CN`, … with lang one of `ru`, `zh-CN`, `ja`, `ko`, `es`, `pt-BR`, `de`, `fr` (a missing translation shows the English text) |
 | `license` | SPDX id from the allowed list |
 | `minEngine` | oldest engine version the package works with |
 | `provides` | what it adds (material ids, type ids, template ids…): agents and `aiverse_pkg.py search` find packages by these |
@@ -44,14 +44,28 @@
 | `install.mergeJson` | JSON objects from the payload merged into project files; existing ids are never overwritten |
 | `previews` | preview images in the package folder (default: every `preview*.jpg/png/webp`) |
 | `archive` | hosted payload for big packages instead of `files/` |
-| `viewer` | web 3D preview: `{"kind": "materials", "library": "materials.json", "items": [...], "titles": {...}, "repeat": 2 or {id: metres}}` or `{"kind": "models", "items": [{"model": "models/a.glb", "title": "A"}]}`; the `pages` workflow builds `view/<id>/<version>/` (files as published, textures at full size) and the site's **3D preview** opens it |
+| `viewer` | web 3D preview: `{"kind": "materials", "library": "materials.json", "items": [{"id": "terrain_grass", "title": "Grass", "title-ru": "Трава", "repeat": 2}], "repeat": 2}` or `{"kind": "models", "items": [{"model": "a.gltf", "title": "A", "title-ru": "А"}]}` (paths inside the payload; files a `.gltf` names outside it, e.g. textures of a dependency, are taken from that dependency); the `pages` workflow builds `view/<id>/<version>/` (files as published, textures at full size) and the site's **3D preview** opens it |
 
 The archive (`<id>-<version>.zip`) holds `aiverse.package.json` at its root and the payload files;
 `tools/catalog.py` builds it reproducibly (fixed timestamps, sorted entries).
 
-## index.json
+## index.json and versions.json
 
-Written by the `publish` workflow; never edit by hand. One entry per package: the manifest's catalog
-fields, `path`, absolute `previews` URLs, `readme`, `latest` and `versions` →
-`{url, sha256, size, files, unpackedSize, minEngine}`. The engine's `aiverse_pkg.py` and the website's
-Catalog page read it from `https://raw.githubusercontent.com/chromealex/AIVERSE-PLUGINS/main/index.json`.
+Both are written by the `publish` workflow; never edit them by hand.
+
+- `index.json` (repository root) is short: `schema` 2, `repo`, `pages`, `languages`, `categories`
+  (`{id, title, title-ru, …}`) and `packages` → `{id, category, path}` of every published package.
+- `<category>/<id>/versions.json` next to the manifest: `latest`, `versions` →
+  `{url, sha256, size, files, unpackedSize, minEngine}`, absolute `previews` URLs, `readme` and the
+  `viewer` URL of the 3D preview.
+
+Consumers (the engine's `aiverse_pkg.py`, the website's Catalog page) read `index.json` from
+`https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/index.json`, then
+`<path>/aiverse.package.json` and `<path>/versions.json` of the packages they need.
+
+## Dependencies between content packages
+
+A package may use files of a package it depends on instead of carrying copies (rule "every texture
+once"): a model pack refers to the textures of the material package with a relative path from its
+mount, e.g. `../../../materials/terrain/textures/rock_basecolor_repeat.png` from `models/terraweave/rocks`.
+`aiverse_pkg.py add` installs content dependencies into the project first (engine 3.1.0+).

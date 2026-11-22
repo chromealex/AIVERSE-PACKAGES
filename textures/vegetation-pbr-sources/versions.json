@@ -1,0 +1,18 @@
+{
+  "id": "vegetation-pbr-sources",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/vegetation-pbr-sources@1.0.0/vegetation-pbr-sources-1.0.0.zip",
+      "sha256": "bfb0fa5499511ae5eb3c29eb8857700638f0726be985fd0f74adeff649fe43da",
+      "size": 39781958,
+      "minEngine": "2.2.0",
+      "files": 20,
+      "unpackedSize": 39781222
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/textures/vegetation-pbr-sources/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/textures/vegetation-pbr-sources/README.md"
+}

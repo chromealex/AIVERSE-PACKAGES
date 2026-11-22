@@ -1,21 +1,21 @@
 {
-  "schema": 1,
+  "schema": 2,
+  "id": "vegetation-pbr",
   "version": "1.0.0",
+  "kind": "content",
+  "category": "materials",
+  "title": "Vegetation PBR materials",
+  "title-ru": "PBR-материалы растительности",
+  "summary": "Oak, pine, birch and spruce bark plus eight foliage atlases with PBR maps, bark projection and winter snow.",
+  "summary-ru": "Кора дуба, сосны, берёзы и ели и восемь атласов листвы с картами PBR, проекцией коры и зимним снегом.",
+  "description": "Used by the TerraWeave (Arbor) botanical forest for bark and leaves. Installs into the project materials/vegetation; the editor also finds the textures in the package cache.",
+  "description-ru": "Нужен ботаническому лесу TerraWeave (Arbor): кора и листва деревьев. Ставится в materials/vegetation проекта; редактор находит текстуры и в кэше пакетов.",
   "license": "MIT",
   "minEngine": "2.2.0",
   "authors": [
     "AIVERSE"
   ],
   "homepage": "https://github.com/chromealex/AIVERSE",
-  "id": "vegetation-pbr",
-  "kind": "content",
-  "category": "materials",
-  "title": "PBR-материалы растительности",
-  "titleEn": "Vegetation PBR materials",
-  "summary": "Кора дуба, сосны, берёзы и ели и восемь атласов листвы с картами PBR, проекцией коры и зимним снегом.",
-  "summaryEn": "Oak, pine, birch and spruce bark plus eight foliage atlases with PBR maps, bark projection and winter snow.",
-  "description": "Нужен ботаническому лесу TerraWeave (Arbor): кора и листва деревьев. Ставится в materials/vegetation проекта; редактор находит текстуры и в кэше пакетов.",
-  "descriptionEn": "Used by the TerraWeave (Arbor) botanical forest for bark and leaves. Installs into the project materials/vegetation; the editor also finds the textures in the package cache.",
   "tags": [
     "vegetation",
     "trees",
@@ -58,33 +58,55 @@
     "kind": "materials",
     "library": "materials.json",
     "items": [
-      "oak_bark",
-      "pine_bark",
-      "birch_bark",
-      "spruce_bark",
-      "oak_leaves",
-      "shrub_leaves",
-      "spruce_leaves",
-      "pine_leaves",
-      "birch_leaves",
-      "maple_leaves",
-      "apple_leaves",
-      "willow_leaves"
+      {
+        "id": "oak_bark",
+        "title": "Oak bark"
+      },
+      {
+        "id": "pine_bark",
+        "title": "Pine bark"
+      },
+      {
+        "id": "birch_bark",
+        "title": "Birch bark"
+      },
+      {
+        "id": "spruce_bark",
+        "title": "Spruce bark"
+      },
+      {
+        "id": "oak_leaves",
+        "title": "Oak leaves"
+      },
+      {
+        "id": "shrub_leaves",
+        "title": "Shrub leaves"
+      },
+      {
+        "id": "spruce_leaves",
+        "title": "Spruce leaves"
+      },
+      {
+        "id": "pine_leaves",
+        "title": "Pine leaves"
+      },
+      {
+        "id": "birch_leaves",
+        "title": "Birch leaves"
+      },
+      {
+        "id": "maple_leaves",
+        "title": "Maple leaves"
+      },
+      {
+        "id": "apple_leaves",
+        "title": "Apple leaves"
+      },
+      {
+        "id": "willow_leaves",
+        "title": "Willow leaves"
+      }
     ],
-    "titles": {
-      "oak_bark": "Oak bark",
-      "pine_bark": "Pine bark",
-      "birch_bark": "Birch bark",
-      "spruce_bark": "Spruce bark",
-      "oak_leaves": "Oak leaves",
-      "shrub_leaves": "Shrub leaves",
-      "spruce_leaves": "Spruce leaves",
-      "pine_leaves": "Pine leaves",
-      "birch_leaves": "Birch leaves",
-      "maple_leaves": "Maple leaves",
-      "apple_leaves": "Apple leaves",
-      "willow_leaves": "Willow leaves"
-    },
     "repeat": 1.5
   }
 }

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "models": [
+    {"file": "rock-0.gltf", "shape": "rounded", "seed": "12058926934050108962", "triangles": [1280,320,80]},
+    {"file": "rock-1.gltf", "shape": "boulder", "seed": "5695472266747893962", "triangles": [1280,320,80]},
+    {"file": "rock-2.gltf", "shape": "slab", "seed": "13209012661203997477", "triangles": [1280,320,80]},
+    {"file": "rock-3.gltf", "shape": "shard", "seed": "7408963384981888293", "triangles": [1280,320,80]},
+    {"file": "rock-4.gltf", "shape": "rounded", "seed": "8004214583788206411", "triangles": [1280,320,80]},
+    {"file": "rock-5.gltf", "shape": "boulder", "seed": "6530207483761974300", "triangles": [1280,320,80]},
+    {"file": "rock-6.gltf", "shape": "slab", "seed": "18098828467231111927", "triangles": [1280,320,80]},
+    {"file": "rock-7.gltf", "shape": "shard", "seed": "13672846375540944515", "triangles": [1280,320,80]},
+    {"file": "rock-8.gltf", "shape": "rounded", "seed": "14301543196384307260", "triangles": [1280,320,80]},
+    {"file": "rock-9.gltf", "shape": "boulder", "seed": "4893107102001668798", "triangles": [1280,320,80]},
+    {"file": "rock-10.gltf", "shape": "slab", "seed": "12536647777456729413", "triangles": [1280,320,80]},
+    {"file": "rock-11.gltf", "shape": "shard", "seed": "13012059237407811783", "triangles": [1280,320,80]}
+  ]
+}

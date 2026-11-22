@@ -1,0 +1,19 @@
+{
+  "id": "vegetation-pbr",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/vegetation-pbr@1.0.0/vegetation-pbr-1.0.0.zip",
+      "sha256": "004aa00f0ff002fb01f963a06c2fde4ee7bb6dd7870a35c61776a052df18a499",
+      "size": 68149444,
+      "minEngine": "2.2.0",
+      "files": 130,
+      "unpackedSize": 68400411
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/materials/vegetation-pbr/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/materials/vegetation-pbr/README.md",
+  "viewer": "https://chromealex.github.io/AIVERSE-PACKAGES/viewer/?src=../view/vegetation-pbr/1.0.0"
+}

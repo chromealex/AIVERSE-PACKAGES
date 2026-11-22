@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "trees": [
+    {
+      "file": "tree-0.gltf",
+      "kind": "spruce",
+      "speciesId": 1,
+      "seed": "12058926934050108962",
+      "season": "summer",
+      "ageTicks": 100,
+      "matureTicks": 100,
+      "lifespanTicks": 0,
+      "foliagePermille": 1000,
+      "triangles": [8584, 5716, 484]
+    },
+    {
+      "file": "tree-1.gltf",
+      "kind": "pine",
+      "speciesId": 2,
+      "seed": "5695472266747893962",
+      "season": "summer",
+      "ageTicks": 100,
+      "matureTicks": 100,
+      "lifespanTicks": 0,
+      "foliagePermille": 1000,
+      "triangles": [5784, 3756, 344]
+    },
+    {
+      "file": "tree-2.gltf",
+      "kind": "fir",
+      "speciesId": 3,
+      "seed": "13209012661203997477",
+      "season": "summer",
+      "ageTicks": 100,
+      "matureTicks": 100,
+      "lifespanTicks": 0,
+      "foliagePermille": 1000,
+      "triangles": [9784, 6556, 544]
+    },
+    {
+      "file": "tree-3.gltf",
+      "kind": "larch",
+      "speciesId": 4,
+      "seed": "7408963384981888293",
+      "season": "summer",
+      "ageTicks": 100,
+      "matureTicks": 100,
+      "lifespanTicks": 0,
+      "foliagePermille": 1000,
+      "triangles": [6984, 4596, 404]
+    },
+    {
+      "file": "tree-4.gltf",
+      "kind": "oak",
+      "speciesId": 5,
+      "seed": "8004214583788206411",
+      "season": "summer",
+      "ageTicks": 100,
+      "matureTicks": 100,
+      "lifespanTicks": 0,
+      "foliagePermille": 1000,
+      "triangles": [10130, 7386, 3520]
+    },
+    {
+      "file": "tree-5.gltf",
+      "kind": "birch",
+      "speciesId": 6,
+      "seed": "6530207483761974300",
+      "season": "summer",
+      "ageTicks": 100,
+      "matureTicks": 100,
+      "lifespanTicks": 0,
+      "foliagePermille": 1000,
+      "triangles": [8866, 6370, 2892]
+    },
+    {
+      "file": "tree-6.gltf",
+      "kind": "maple",
+      "speciesId": 7,
+      "seed": "18098828467231111927",
+      "season": "summer",
+      "ageTicks": 100,
+      "matureTicks": 100,
+      "lifespanTicks": 0,
+      "foliagePermille": 1000,
+      "triangles": [9220, 6620, 3088]
+    },
+    {
+      "file": "tree-7.gltf",
+      "kind": "apple",
+      "speciesId": 8,
+      "seed": "13672846375540944515",
+      "season": "summer",
+      "ageTicks": 100,
+      "matureTicks": 100,
+      "lifespanTicks": 0,
+      "foliagePermille": 1000,
+      "triangles": [6694, 4694, 2146]
+    },
+    {
+      "file": "tree-8.gltf",
+      "kind": "willow",
+      "speciesId": 9,
+      "seed": "14301543196384307260",
+      "season": "summer",
+      "ageTicks": 100,
+      "matureTicks": 100,
+      "lifespanTicks": 0,
+      "foliagePermille": 1000,
+      "triangles": [9592, 6944, 3268]
+    },
+    {
+      "file": "tree-9.gltf",
+      "kind": "poplar",
+      "speciesId": 10,
+      "seed": "4893107102001668798",
+      "season": "summer",
+      "ageTicks": 100,
+      "matureTicks": 100,
+      "lifespanTicks": 0,
+      "foliagePermille": 1000,
+      "triangles": [10534, 7590, 3542]
+    }
+  ],
+  "grass": []
+}

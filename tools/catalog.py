@@ -36,21 +36,25 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / 'index.json'
 MANIFEST = 'aiverse.package.json'
-REPO = os.environ.get('GITHUB_REPOSITORY', 'chromealex/AIVERSE-PLUGINS')
+MODEL_SIDECARS = ('.batching.json', '.clips.json', '.wind.json', '.lmuv')  # read by render::loadModel next to the model
+VERSIONS = 'versions.json'  # written by publish next to the manifest: published versions, previews, viewer
+REPO = os.environ.get('GITHUB_REPOSITORY', 'chromealex/AIVERSE-PACKAGES')
 RAW = f'https://raw.githubusercontent.com/{REPO}/main'
-SCHEMA = 1
+SCHEMA = 2  # 2: index.json lists {id, category, path}; the rest is in the package folder
+# Texts: the plain key is English, other languages are '<key>-<lang>' (title-ru, summary-zh-CN, ...)
+LANGS = ('ru', 'zh-CN', 'ja', 'ko', 'es', 'pt-BR', 'de', 'fr')
 
 CATEGORIES = {
-    'templates': 'Шаблоны проектов',
-    'materials': 'Материалы',
-    'textures': 'Текстуры',
-    'models': 'Модели',
-    'audio': 'Звук и музыка',
-    'vfx': 'Эффекты',
-    'ui': 'Интерфейс',
-    'scripts': 'Скрипты и механики',
-    'plugins': 'Нативные плагины',
-    'tools': 'Инструменты',
+    'templates': {'title': 'Project templates', 'title-ru': 'Шаблоны проектов'},
+    'materials': {'title': 'Materials', 'title-ru': 'Материалы'},
+    'textures': {'title': 'Textures', 'title-ru': 'Текстуры'},
+    'models': {'title': 'Models', 'title-ru': 'Модели'},
+    'audio': {'title': 'Sound and music', 'title-ru': 'Звук и музыка'},
+    'vfx': {'title': 'Effects', 'title-ru': 'Эффекты'},
+    'ui': {'title': 'Interface', 'title-ru': 'Интерфейс'},
+    'scripts': {'title': 'Scripts and mechanics', 'title-ru': 'Скрипты и механики'},
+    'plugins': {'title': 'Native plugins', 'title-ru': 'Нативные плагины'},
+    'tools': {'title': 'Tools', 'title-ru': 'Инструменты'},
 }
 KINDS = ('content', 'template', 'source', 'script', 'plugin', 'tool')
 LICENSES = ('MIT', 'BSD-2-Clause', 'BSD-3-Clause', 'Apache-2.0', 'Zlib', 'CC0-1.0', 'CC-BY-4.0', 'OFL-1.1')
@@ -64,12 +68,13 @@ MAX_FILE_IN_GIT = 10 * 1024 * 1024      # one file in files/
 MAX_ARCHIVE = 2000 * 1024 * 1024        # GitHub release asset limit
 ZIP_DATE = (1980, 1, 1, 0, 0, 0)
 STORED_EXT = {'.png', '.jpg', '.jpeg', '.ktx2', '.dds', '.glb', '.ogg', '.mp3', '.zip', '.rpak', '.webp', '.basis'}
-REQUIRED = ('id', 'version', 'kind', 'category', 'title', 'titleEn', 'summary', 'summaryEn', 'license', 'minEngine')
-TEXT_FIELDS = ('title', 'titleEn', 'summary', 'summaryEn', 'description', 'descriptionEn')
+REQUIRED = ('id', 'version', 'kind', 'category', 'title', 'summary', 'license', 'minEngine')
+TEXT_KEYS = ('title', 'summary', 'description')
+TEXT_FIELDS = tuple(k + suffix for k in TEXT_KEYS for suffix in [''] + ['-' + l for l in LANGS])
 ALLOWED = set(REQUIRED) | set(TEXT_FIELDS) | {
     'schema', 'tags', 'authors', 'homepage', 'provides', 'dependencies', 'install', 'archive', 'previews', 'source',
     'viewer'}
-PAGES = os.environ.get('CATALOG_PAGES', 'https://chromealex.github.io/AIVERSE-PLUGINS')
+PAGES = os.environ.get('CATALOG_PAGES', 'https://chromealex.github.io/AIVERSE-PACKAGES')
 MATERIAL_MAPS = ('texture', 'normalMap', 'metallicRoughnessMap', 'occlusionMap', 'emissiveMap')
 
 
@@ -153,7 +158,9 @@ def check_package(folder: Path, m: dict, seen: dict, index: dict) -> list[str]:
         if not m.get(k):
             err.append(f'{where}: "{k}" is required')
     for k in m:
-        if k not in ALLOWED:
+        if '-' in k and k.split('-', 1)[0] in TEXT_KEYS and k not in TEXT_FIELDS:
+            err.append(f'{where}: "{k}": translations are "<key>-<lang>" with lang one of {", ".join(LANGS)}')
+        elif k not in ALLOWED:
             err.append(f'{where}: unknown field "{k}"')
     if err:
         return err
@@ -178,7 +185,7 @@ def check_package(folder: Path, m: dict, seen: dict, index: dict) -> list[str]:
     for k in TEXT_FIELDS:
         if k in m and not isinstance(m[k], str):
             err.append(f'{where}: {k} must be a string')
-    if len(m.get('summary', '')) > 240 or len(m.get('summaryEn', '')) > 240:
+    if any(len(m.get(k, '')) > 240 for k in TEXT_FIELDS if k.startswith('summary')):
         err.append(f'{where}: summary is limited to 240 characters (longer text goes to description)')
     inst = m.get('install') or {}
     if m['kind'] == 'content' and not inst.get('mount'):
@@ -197,6 +204,11 @@ def check_package(folder: Path, m: dict, seen: dict, index: dict) -> list[str]:
             err.append(f'{where}: viewer.library (material library JSON inside the payload) is required')
         elif v['kind'] == 'models' and not v.get('items'):
             err.append(f'{where}: viewer.items ([{{"model": "path.glb", "title": ...}}]) is required')
+        else:
+            for it in v.get('items') or []:
+                if not isinstance(it, dict) or not (it.get('model') or it.get('id')):
+                    err.append(f'{where}: viewer.items entries are {{"id" or "model", "title", "title-<lang>"}}')
+                    break
     if not (folder / 'README.md').is_file():
         err.append(f'{where}: README.md is required (what it is, how to use it, licence and origin)')
     names = previews(folder, m)
@@ -253,7 +265,7 @@ def check_package(folder: Path, m: dict, seen: dict, index: dict) -> list[str]:
             err.append(f'{where}: archive.url must be https')
         if int(arch.get('size') or 0) > MAX_ARCHIVE:
             err.append(f'{where}: archive is larger than 2000 MB')
-    known = next((p for p in index.get('packages', []) if p['id'] == m['id']), None)
+    known = read_json(folder / VERSIONS, None)
     if known and m['version'] in known['versions'] and arch:
         if known['versions'][m['version']]['sha256'] != arch.get('sha256'):
             err.append(f'{where}: version {m["version"]} is already published with another archive; bump the version')
@@ -280,7 +292,7 @@ def check_all() -> list[str]:
 
 def zip_manifest(m: dict) -> dict:
     """The manifest stored inside the archive (what the engine reads after download)."""
-    keep = ('schema', 'id', 'version', 'kind', 'category', 'title', 'titleEn', 'summary', 'summaryEn',
+    keep = ('schema', 'id', 'version', 'kind', 'category', *TEXT_FIELDS,
             'license', 'minEngine', 'authors', 'homepage', 'provides', 'dependencies', 'install', 'tags')
     out = {k: m[k] for k in keep if k in m}
     out['schema'] = SCHEMA
@@ -390,20 +402,31 @@ def gltf_dependencies(path: Path, rel: str) -> list[str]:
     return out
 
 
-def build_view(m: dict, payload: Path, out: Path) -> dict:
+def build_view(m: dict, payload: Path, out: Path, deps: list | None = None) -> dict:
     """Web preview folder for apps/catalogview of the engine: view.json + the files it shows, with the
-    package's project-relative paths (payload under install.mount), every file as published (textures keep their size)."""
+    package's project-relative paths (payload under install.mount), every file as published (textures keep their size).
+    deps: [(mount, payload)] of the content packages it depends on, for files it refers to there
+    (a model pack using the textures of a material package)."""
     v = m['viewer']
     mount = (m.get('install') or {}).get('mount', '')
     out.mkdir(parents=True, exist_ok=True)
+    roots = [(mount, payload)] + list(deps or [])
 
-    def src_of(rel):  # project-relative path -> payload file
-        r = Path(rel)
-        if mount and r.parts[:len(Path(mount).parts)] == Path(mount).parts:
-            r = Path(*r.parts[len(Path(mount).parts):])
-        return payload / r
+    def src_of(rel):  # project-relative path -> payload file (own payload first, then the dependencies)
+        r = Path(os.path.normpath(rel))
+        first = None
+        for mnt, root in roots:
+            mp = Path(mnt).parts if mnt else ()
+            if r.parts[:len(mp)] != mp:
+                continue
+            p = root / Path(*r.parts[len(mp):])
+            if p.is_file():
+                return p
+            first = first or p
+        return first or payload / r
 
     def copy(rel):  # files go as published: textures keep their size and format
+        rel = Path(os.path.normpath(rel)).as_posix()
         dst = out / rel
         if dst.exists():
             return True
@@ -422,19 +445,22 @@ def build_view(m: dict, payload: Path, out: Path) -> dict:
         view['library'] = lib_rel
         view['shared'] = [lib_rel]
         copy(lib_rel)
-        ids = v.get('items') or sorted(library)
-        titles = v.get('titles') or {}
+        items = v.get('items') or [{'id': k} for k in sorted(library)]
         repeats = v.get('repeat') or {}
-        for mid in ids:
+        for it in items:
+            mid = it['id']
             entry = library.get(mid)
             if not isinstance(entry, dict):
                 continue
             files = [entry[k] for k in MATERIAL_MAPS if isinstance(entry.get(k), str)]
             if not all(copy(f) for f in files):
                 continue
-            title = titles.get(mid) or mid.split('_', 1)[-1].replace('_', ' ') if '_' in mid else mid
-            item = {'id': mid, 'title': titles.get(mid, title), 'files': files}
-            if isinstance(repeats, dict) and mid in repeats:
+            item = {'id': mid, 'files': files}
+            item.update({k: it[k] for k in it if k.split('-', 1)[0] == 'title'})
+            item.setdefault('title', mid.split('_', 1)[-1].replace('_', ' ').capitalize())
+            if 'repeat' in it:
+                item['repeat'] = it['repeat']
+            elif isinstance(repeats, dict) and mid in repeats:
                 item['repeat'] = repeats[mid]
             elif isinstance(repeats, (int, float)):
                 item['repeat'] = repeats
@@ -444,25 +470,26 @@ def build_view(m: dict, payload: Path, out: Path) -> dict:
             rel = (Path(mount) / it['model']).as_posix() if mount else it['model']
             if not copy(rel):
                 continue
-            files = [rel] + gltf_dependencies(src_of(rel), rel)
+            files = [rel] + [Path(os.path.normpath(f)).as_posix() for f in gltf_dependencies(src_of(rel), rel)]
+            files += [rel + s for s in MODEL_SIDECARS if src_of(rel + s).is_file()]
             for f in files[1:]:
                 copy(f)
-            view['items'].append({'id': Path(it['model']).stem, 'title': it.get('title', Path(it['model']).stem),
-                                  'model': rel, 'files': files})
+            item = {'id': it.get('id') or Path(it['model']).stem, 'model': rel, 'files': files}
+            item.update({k: it[k] for k in it if k.split('-', 1)[0] == 'title'})
+            item.setdefault('title', item['id'])
+            view['items'].append(item)
     write_json(out / 'view.json', view)
     return view
 
 
 def build_views(out: Path) -> int:
     """view/<id>/<version>/ for the latest published version of every package with a viewer."""
-    index = read_json(INDEX, {'schema': SCHEMA, 'packages': []})
     work = Path(tempfile.mkdtemp(prefix='views-'))
     made = 0
+    published = {m['id']: (folder, read_json(folder / VERSIONS, None)) for folder, m in packages()}
     for folder, m in packages():
-        if not m.get('viewer'):
-            continue
-        e = next((p for p in index.get('packages', []) if p['id'] == m['id']), None)
-        if not e:
+        e = published[m['id']][1]
+        if not m.get('viewer') or not e:
             continue
         ver = e['latest']
         info = e['versions'][ver]
@@ -473,7 +500,22 @@ def build_views(out: Path) -> int:
         payload = work / m['id']
         with zipfile.ZipFile(archive) as z:
             z.extractall(payload)
-        view = build_view(dict(m, version=ver), payload, out / 'view' / m['id'] / ver)
+        deps = []
+        for dep in (m.get('dependencies') or {}):
+            de = published.get(dep, (None, None))[1]
+            if not de:
+                continue
+            dinfo = de['versions'][de['latest']]
+            dzip = work / f"{dep}-{de['latest']}.zip"
+            if not dzip.exists():
+                fetch(dinfo['url'], dzip)
+            dpay = work / f'dep-{dep}'
+            if not dpay.exists():
+                with zipfile.ZipFile(dzip) as z:
+                    z.extractall(dpay)
+            dm = read_json(dpay / MANIFEST, {})
+            deps.append(((dm.get('install') or {}).get('mount', ''), dpay))
+        view = build_view(dict(m, version=ver), payload, out / 'view' / m['id'] / ver, deps)
         print(f"{m['id']}@{ver}: view with {len(view['items'])} item(s)")
         made += 1
     shutil.rmtree(work, ignore_errors=True)
@@ -482,42 +524,34 @@ def build_views(out: Path) -> int:
 
 # ---------------------------------------------------------------- index
 
-def entry_for(folder: Path, m: dict, version_info: dict) -> dict:
+def publication(folder: Path, m: dict, versions: dict) -> dict:
+    """versions.json of a package: what consumers cannot derive from the manifest."""
     rel = folder.relative_to(ROOT).as_posix()
-    e = {'id': m['id'], 'kind': m['kind'], 'category': m['category'], 'path': rel}
-    for k in TEXT_FIELDS + ('license', 'tags', 'authors', 'homepage', 'provides', 'dependencies'):
-        if k in m:
-            e[k] = m[k]
-    if m.get('install', {}).get('mount'):
-        e['mount'] = m['install']['mount']
-    e['previews'] = [f'{RAW}/{rel}/{n}' for n in previews(folder, m)]
+    versions = dict(sorted(versions.items(), key=lambda kv: version_key(kv[0])))
+    latest = list(versions)[-1]
+    out = {'id': m['id'], 'latest': latest, 'versions': versions,
+           'previews': [f'{RAW}/{rel}/{n}' for n in previews(folder, m)],
+           'readme': f'https://github.com/{REPO}/blob/main/{rel}/README.md'}
     if m.get('viewer'):
-        e['viewer'] = {'kind': m['viewer']['kind']}
-    e['readme'] = f'https://github.com/{REPO}/blob/main/{rel}/README.md'
-    return e
+        out['viewer'] = f"{PAGES}/viewer/?src=../view/{m['id']}/{latest}"
+    return out
 
 
 def write_index(new_versions: dict) -> dict:
-    """new_versions: id -> (folder, manifest, {url, sha256, size, files, unpackedSize})."""
-    old = read_json(INDEX, {'schema': SCHEMA, 'packages': []})
-    old_by_id = {p['id']: p for p in old.get('packages', [])}
+    """new_versions: id -> {url, sha256, size, files, unpackedSize, minEngine}. Writes <package>/versions.json
+    for every published package and the short root index.json (categories + {id, category, path})."""
     out = []
     for folder, m in packages():
-        prev = old_by_id.get(m['id'], {})
-        versions = dict(prev.get('versions', {}))
+        versions = dict((read_json(folder / VERSIONS, {}) or {}).get('versions', {}))
         if m['id'] in new_versions:
             versions[m['version']] = new_versions[m['id']]
         if not versions:
             continue  # nothing published yet
-        e = entry_for(folder, m, versions)
-        e['versions'] = dict(sorted(versions.items(), key=lambda kv: version_key(kv[0])))
-        e['latest'] = list(e['versions'])[-1]
-        out.append(e)
-    for e in out:
-        if e.get('viewer'):
-            e['viewer']['url'] = f"{PAGES}/viewer/?src=../view/{e['id']}/{e['latest']}"
+        write_json(folder / VERSIONS, publication(folder, m, versions))
+        out.append({'id': m['id'], 'category': m['category'], 'path': folder.relative_to(ROOT).as_posix()})
     index = {'schema': SCHEMA, 'repo': f'https://github.com/{REPO}', 'pages': PAGES,
-             'categories': [{'id': k, 'title': v} for k, v in CATEGORIES.items()],
+             'languages': ['en', *LANGS],
+             'categories': [dict(id=k, **v) for k, v in CATEGORIES.items()],
              'packages': sorted(out, key=lambda p: (p['category'], p['id']))}
     write_json(INDEX, index)
     return index
@@ -528,12 +562,10 @@ def publish(dry_run: bool) -> int:
     if errors:
         print('\n'.join('error: ' + e for e in errors))
         return 1
-    index = read_json(INDEX, {'schema': SCHEMA, 'packages': []})
-    known = {p['id']: p for p in index.get('packages', [])}
     new_versions = {}
     work = Path(tempfile.mkdtemp(prefix='catalog-'))
     for folder, m in packages():
-        if m['version'] in known.get(m['id'], {}).get('versions', {}):
+        if m['version'] in (read_json(folder / VERSIONS, {}) or {}).get('versions', {}):
             continue
         tag = f"{m['id']}@{m['version']}"
         name = f"{m['id']}-{m['version']}.zip"
@@ -559,9 +591,9 @@ def publish(dry_run: bool) -> int:
         else:
             existing = release_asset(tag, name)
             if existing is None:
-                notes = f"{m['titleEn']} — {m['summaryEn']}\n\n{m['title']} — {m['summary']}\n\nsha256 `{info['sha256']}`"
+                notes = f"{m['title']} — {m['summary']}\n\nsha256 `{info['sha256']}`"
                 if gh('release', 'view', tag, '--repo', REPO, check=False).returncode != 0:
-                    gh('release', 'create', tag, str(archive), '--repo', REPO, '--title', f"{m['titleEn']} {m['version']}",
+                    gh('release', 'create', tag, str(archive), '--repo', REPO, '--title', f"{m['title']} {m['version']}",
                        '--notes', notes)
                 else:
                     gh('release', 'upload', tag, str(archive), '--repo', REPO)
