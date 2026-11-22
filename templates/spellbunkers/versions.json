@@ -1,0 +1,18 @@
+{
+  "id": "spellbunkers",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/spellbunkers@1.0.0/spellbunkers-1.0.0.zip",
+      "sha256": "6167df8e9e6f0a8d9658924b65c3e825af5ecac9279a5ae17183d1349f5e43bd",
+      "size": 63113,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 134902
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/spellbunkers/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/spellbunkers/README.md"
+}

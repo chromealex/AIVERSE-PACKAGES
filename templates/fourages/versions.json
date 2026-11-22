@@ -1,0 +1,18 @@
+{
+  "id": "fourages",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/fourages@1.0.0/fourages-1.0.0.zip",
+      "sha256": "a56087ecff4e3800837269bd3800e11ffb7943307338771ff0d21c047bb60119",
+      "size": 142287,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 352556
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/fourages/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/fourages/README.md"
+}

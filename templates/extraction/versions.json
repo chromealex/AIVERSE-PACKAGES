@@ -1,0 +1,18 @@
+{
+  "id": "extraction",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/extraction@1.0.0/extraction-1.0.0.zip",
+      "sha256": "ae13468158286a791e091d5e35ac51f212ef3318b32b835dd6696be6368164a9",
+      "size": 4715,
+      "minEngine": "3.1.0",
+      "files": 6,
+      "unpackedSize": 13483
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/extraction/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/extraction/README.md"
+}

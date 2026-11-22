@@ -1,0 +1,38 @@
+{
+  "schema": 2,
+  "id": "fps-survival",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Last Survivor",
+  "summary": "A large map for 100 players: streamed environment, drop from a plane, a phased zone, a red zone and airdrops.",
+  "summary-ru": "Большая карта, 100 мест, потоковая загрузка окружения, высадка с самолёта, зона по фазам, красная зона и аирдропы.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "fps",
+    "battle-royale",
+    "large-world"
+  ],
+  "provides": {
+    "engineTemplate": "fps_survival",
+    "module": "actor",
+    "maps": [
+      "Last Survivor"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/fps-survival@1.0.0/fps-survival-1.0.0.zip",
+    "sha256": "85df957f62c58f4bc5eaa1b53739690aa581a83b0981034e49f2cfc8f04a392a",
+    "size": 23468
+  }
+}

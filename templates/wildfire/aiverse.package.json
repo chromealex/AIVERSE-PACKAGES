@@ -1,0 +1,37 @@
+{
+  "schema": 2,
+  "id": "wildfire",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Wildfire",
+  "summary": "Grid fields: forest fires and spreading creep.",
+  "summary-ru": "Поля на сетке: лесные пожары и расползающаяся слизь.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "fields",
+    "fire"
+  ],
+  "provides": {
+    "engineTemplate": "wildfire",
+    "module": "game",
+    "maps": [
+      "Burning Valley (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/wildfire@1.0.0/wildfire-1.0.0.zip",
+    "sha256": "4cb01e66d144fe165e520d611f57598ac3746fe55ab10cd3832f210bfaa001f0",
+    "size": 57390
+  }
+}

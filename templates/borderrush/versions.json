@@ -1,0 +1,18 @@
+{
+  "id": "borderrush",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/borderrush@1.0.0/borderrush-1.0.0.zip",
+      "sha256": "26b023e81b41cfc03e3843c3ecd87fbb634d18f43ade97c0ccb115452d5e82e4",
+      "size": 52502,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 157978
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/borderrush/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/borderrush/README.md"
+}

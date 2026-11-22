@@ -1,0 +1,38 @@
+{
+  "schema": 2,
+  "id": "perk-arena",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Perk Arena",
+  "summary": "A hero arena with in-match progression: experience orbs, level-up perk offers, summons and a battle deck.",
+  "summary-ru": "Арена героя с прокачкой в матче: шары опыта, выбор перков при повышении уровня, призывы и боевая колода.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "perks",
+    "progression",
+    "top-down"
+  ],
+  "provides": {
+    "engineTemplate": "perk_arena",
+    "module": "game",
+    "maps": [
+      "Perk Arena (PvE)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/perk-arena@1.0.0/perk-arena-1.0.0.zip",
+    "sha256": "7bbc555623f8cdbd7f1929b32840d16d293f60cfbe8b0bfee31eb01680ed20f4",
+    "size": 6318
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema": 2,
+  "id": "borderrush",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Border Rush",
+  "summary": "In the style of State.io: troops leave the bases on their own and capture cells.",
+  "summary-ru": "Как State.io: войска сами захватывают клетки.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "capture",
+    "casual"
+  ],
+  "provides": {
+    "engineTemplate": "borderrush",
+    "module": "game",
+    "maps": [
+      "Five Lands (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/borderrush@1.0.0/borderrush-1.0.0.zip",
+    "sha256": "26b023e81b41cfc03e3843c3ecd87fbb634d18f43ade97c0ccb115452d5e82e4",
+    "size": 52502
+  }
+}

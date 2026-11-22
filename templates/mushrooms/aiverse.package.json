@@ -1,0 +1,37 @@
+{
+  "schema": 2,
+  "id": "mushrooms",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Mushroom Clash",
+  "summary": "In the style of Mushroom Wars: garrisons and roads.",
+  "summary-ru": "Как Mushroom Wars: гарнизоны и дороги.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "capture",
+    "garrisons"
+  ],
+  "provides": {
+    "engineTemplate": "mushrooms",
+    "module": "game",
+    "maps": [
+      "Duel"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/mushrooms@1.0.0/mushrooms-1.0.0.zip",
+    "sha256": "2419ad52fa5fc6a6c2f9eacd98ec630b1619748669fae7573e0c915db1a2cb54",
+    "size": 110169
+  }
+}

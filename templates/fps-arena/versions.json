@@ -1,0 +1,18 @@
+{
+  "id": "fps-arena",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/fps-arena@1.0.0/fps-arena-1.0.0.zip",
+      "sha256": "a94b70c2334764d0989a358d27ff093bdaa46019e914b55e5b3a612d642afd27",
+      "size": 4553,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 9892
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/fps-arena/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/fps-arena/README.md"
+}

@@ -1,0 +1,38 @@
+{
+  "schema": 2,
+  "id": "planets",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Planets",
+  "summary": "A planet and a moon, orbits and flights between them. A second map is a big planet with flow fields.",
+  "summary-ru": "Планета и луна, орбиты, перелёты. Вторая карта — большая планета с потоковыми полями.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "planets",
+    "orbits"
+  ],
+  "provides": {
+    "engineTemplate": "planets",
+    "module": "game",
+    "maps": [
+      "Two Worlds (1v1)",
+      "Big Planet (1v1, flow fields)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/planets@1.0.0/planets-1.0.0.zip",
+    "sha256": "78fb276a77bb2838454ba9e503fea0cff09db1f1511ea7d7efc0f7ff2342d43f",
+    "size": 227701
+  }
+}

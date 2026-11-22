@@ -1,0 +1,18 @@
+{
+  "id": "ambersands",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/ambersands@1.0.0/ambersands-1.0.0.zip",
+      "sha256": "fcb2dea58ec599093bec38d12ccf17ce9a19b0f3b47b08fe512e888e7445ea9f",
+      "size": 531551,
+      "minEngine": "3.1.0",
+      "files": 15,
+      "unpackedSize": 614879
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/ambersands/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/ambersands/README.md"
+}

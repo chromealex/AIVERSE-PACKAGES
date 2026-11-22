@@ -1,0 +1,38 @@
+{
+  "schema": 2,
+  "id": "hearthhaul",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Hearth and Haul",
+  "summary": "In the style of Knights and Merchants: goods carried along roads.",
+  "summary-ru": "Как Knights and Merchants: товары и дороги.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "economy",
+    "logistics",
+    "roads"
+  ],
+  "provides": {
+    "engineTemplate": "hearthhaul",
+    "module": "game",
+    "maps": [
+      "Green Dale (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/hearthhaul@1.0.0/hearthhaul-1.0.0.zip",
+    "sha256": "59b7c56d8225f58940201a51ff27469d94c55ac74ac162581d4dc9d2889311bb",
+    "size": 130917
+  }
+}

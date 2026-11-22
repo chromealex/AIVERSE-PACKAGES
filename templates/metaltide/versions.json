@@ -1,0 +1,18 @@
+{
+  "id": "metaltide",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/metaltide@1.0.0/metaltide-1.0.0.zip",
+      "sha256": "a7305ecd191088309655f0aa2e467e0e7218db48fa864fb6bf0a6b854df36e92",
+      "size": 148313,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 352987
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/metaltide/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/metaltide/README.md"
+}

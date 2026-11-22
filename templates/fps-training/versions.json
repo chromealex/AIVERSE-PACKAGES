@@ -1,0 +1,18 @@
+{
+  "id": "fps-training",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/fps-training@1.0.0/fps-training-1.0.0.zip",
+      "sha256": "fb7766908eeba3073d6a39540253c026d1ecf406473e8354ac4ada12898f813d",
+      "size": 2706,
+      "minEngine": "3.1.0",
+      "files": 4,
+      "unpackedSize": 7076
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/fps-training/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/fps-training/README.md"
+}

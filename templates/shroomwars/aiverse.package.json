@@ -1,0 +1,38 @@
+{
+  "schema": 2,
+  "id": "shroomwars",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Shroom Wars",
+  "summary": "In the style of Mushroom Wars 2: levels, forges, morale and heroes.",
+  "summary-ru": "Mushroom Wars 2: уровни, кузницы, мораль, герои.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "capture",
+    "garrisons",
+    "heroes"
+  ],
+  "provides": {
+    "engineTemplate": "shroomwars",
+    "module": "game",
+    "maps": [
+      "Twin Valleys (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/shroomwars@1.0.0/shroomwars-1.0.0.zip",
+    "sha256": "c32243af469e218c9011cb17c9d8f8fc856cd4c98ae000324283ee7fffd16545",
+    "size": 60937
+  }
+}

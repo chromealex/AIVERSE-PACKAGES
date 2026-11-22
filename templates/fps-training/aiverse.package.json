@@ -1,0 +1,38 @@
+{
+  "schema": 2,
+  "id": "fps-training",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Aim Lab",
+  "summary": "A shooting range: targets, shooting, reloading and an obstacle course.",
+  "summary-ru": "Тренировочный тир: мишени, стрельба, перезарядка и полоса препятствий.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "fps",
+    "training",
+    "range"
+  ],
+  "provides": {
+    "engineTemplate": "fps_training",
+    "module": "actor",
+    "maps": [
+      "Aim Lab"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/fps-training@1.0.0/fps-training-1.0.0.zip",
+    "sha256": "fb7766908eeba3073d6a39540253c026d1ecf406473e8354ac4ada12898f813d",
+    "size": 2706
+  }
+}

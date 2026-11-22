@@ -1,0 +1,18 @@
+{
+  "id": "lastcolony",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/lastcolony@1.0.0/lastcolony-1.0.0.zip",
+      "sha256": "a69942f9345e44fa680ba713afd4806477da181272aa0db26b28abd81bac7f58",
+      "size": 73098,
+      "minEngine": "3.1.0",
+      "files": 10,
+      "unpackedSize": 207977
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/lastcolony/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/lastcolony/README.md"
+}

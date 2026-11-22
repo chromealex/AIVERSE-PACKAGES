@@ -1,0 +1,18 @@
+{
+  "id": "scripted",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/scripted@1.0.0/scripted-1.0.0.zip",
+      "sha256": "b428d0309672778556e83589e6639c35fb49618b5b873296dce8ac536a1227e8",
+      "size": 60365,
+      "minEngine": "3.1.0",
+      "files": 27,
+      "unpackedSize": 158729
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/scripted/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/scripted/README.md"
+}

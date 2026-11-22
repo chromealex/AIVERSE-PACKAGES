@@ -91,6 +91,222 @@
       "official": true
     },
     {
+      "id": "ambersands",
+      "category": "templates",
+      "path": "templates/ambersands",
+      "official": true
+    },
+    {
+      "id": "borderrush",
+      "category": "templates",
+      "path": "templates/borderrush",
+      "official": true
+    },
+    {
+      "id": "boss-arena",
+      "category": "templates",
+      "path": "templates/boss-arena",
+      "official": true
+    },
+    {
+      "id": "clanlands",
+      "category": "templates",
+      "path": "templates/clanlands",
+      "official": true
+    },
+    {
+      "id": "extraction",
+      "category": "templates",
+      "path": "templates/extraction",
+      "official": true
+    },
+    {
+      "id": "flagsectors",
+      "category": "templates",
+      "path": "templates/flagsectors",
+      "official": true
+    },
+    {
+      "id": "fourages",
+      "category": "templates",
+      "path": "templates/fourages",
+      "official": true
+    },
+    {
+      "id": "fps-arena",
+      "category": "templates",
+      "path": "templates/fps-arena",
+      "official": true
+    },
+    {
+      "id": "fps-survival",
+      "category": "templates",
+      "path": "templates/fps-survival",
+      "official": true
+    },
+    {
+      "id": "fps-tactical",
+      "category": "templates",
+      "path": "templates/fps-tactical",
+      "official": true
+    },
+    {
+      "id": "fps-training",
+      "category": "templates",
+      "path": "templates/fps-training",
+      "official": true
+    },
+    {
+      "id": "frostcrown",
+      "category": "templates",
+      "path": "templates/frostcrown",
+      "official": true
+    },
+    {
+      "id": "hearthhaul",
+      "category": "templates",
+      "path": "templates/hearthhaul",
+      "official": true
+    },
+    {
+      "id": "holdtheline",
+      "category": "templates",
+      "path": "templates/holdtheline",
+      "official": true
+    },
+    {
+      "id": "ironfront",
+      "category": "templates",
+      "path": "templates/ironfront",
+      "official": true
+    },
+    {
+      "id": "km2d",
+      "category": "templates",
+      "path": "templates/km2d",
+      "official": true
+    },
+    {
+      "id": "laneclash",
+      "category": "templates",
+      "path": "templates/laneclash",
+      "official": true
+    },
+    {
+      "id": "lastcolony",
+      "category": "templates",
+      "path": "templates/lastcolony",
+      "official": true
+    },
+    {
+      "id": "metaltide",
+      "category": "templates",
+      "path": "templates/metaltide",
+      "official": true
+    },
+    {
+      "id": "mushrooms",
+      "category": "templates",
+      "path": "templates/mushrooms",
+      "official": true
+    },
+    {
+      "id": "perk-arena",
+      "category": "templates",
+      "path": "templates/perk-arena",
+      "official": true
+    },
+    {
+      "id": "planets",
+      "category": "templates",
+      "path": "templates/planets",
+      "official": true
+    },
+    {
+      "id": "racing",
+      "category": "templates",
+      "path": "templates/racing",
+      "official": true
+    },
+    {
+      "id": "road-race",
+      "category": "templates",
+      "path": "templates/road-race",
+      "official": true
+    },
+    {
+      "id": "scripted",
+      "category": "templates",
+      "path": "templates/scripted",
+      "official": true
+    },
+    {
+      "id": "showcase",
+      "category": "templates",
+      "path": "templates/showcase",
+      "official": true
+    },
+    {
+      "id": "shroomwars",
+      "category": "templates",
+      "path": "templates/shroomwars",
+      "official": true
+    },
+    {
+      "id": "skirmish",
+      "category": "templates",
+      "path": "templates/skirmish",
+      "official": true
+    },
+    {
+      "id": "spellbunkers",
+      "category": "templates",
+      "path": "templates/spellbunkers",
+      "official": true
+    },
+    {
+      "id": "sporelanes",
+      "category": "templates",
+      "path": "templates/sporelanes",
+      "official": true
+    },
+    {
+      "id": "starfall",
+      "category": "templates",
+      "path": "templates/starfall",
+      "official": true
+    },
+    {
+      "id": "tiles2d",
+      "category": "templates",
+      "path": "templates/tiles2d",
+      "official": true
+    },
+    {
+      "id": "topdown-arena",
+      "category": "templates",
+      "path": "templates/topdown-arena",
+      "official": true
+    },
+    {
+      "id": "underlord",
+      "category": "templates",
+      "path": "templates/underlord",
+      "official": true
+    },
+    {
+      "id": "voxel-sandbox",
+      "category": "templates",
+      "path": "templates/voxel-sandbox",
+      "official": true
+    },
+    {
+      "id": "wildfire",
+      "category": "templates",
+      "path": "templates/wildfire",
+      "official": true
+    },
+    {
       "id": "terrain-pbr-sources",
       "category": "textures",
       "path": "textures/terrain-pbr-sources",

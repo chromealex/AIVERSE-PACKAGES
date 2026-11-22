@@ -1,0 +1,18 @@
+{
+  "id": "boss-arena",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/boss-arena@1.0.0/boss-arena-1.0.0.zip",
+      "sha256": "a3f820206c1a864b3da721be04c07524887d283c117c9ceb9d2ca3c9f29f1b5e",
+      "size": 4975,
+      "minEngine": "3.1.0",
+      "files": 5,
+      "unpackedSize": 12390
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/boss-arena/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/boss-arena/README.md"
+}

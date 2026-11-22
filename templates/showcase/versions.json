@@ -1,0 +1,18 @@
+{
+  "id": "showcase",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/showcase@1.0.0/showcase-1.0.0.zip",
+      "sha256": "ac0c1a8cf63d13d42bc39fa99166784fc42f2b1d73b2b35bcfb5807282b6956f",
+      "size": 227712,
+      "minEngine": "3.1.0",
+      "files": 30,
+      "unpackedSize": 308919
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/showcase/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/showcase/README.md"
+}

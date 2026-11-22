@@ -1,0 +1,18 @@
+{
+  "id": "clanlands",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/clanlands@1.0.0/clanlands-1.0.0.zip",
+      "sha256": "f6c7197eb3ea8f779870bf2f3ba8d79c00e508afe1444e7e8599af2448432c72",
+      "size": 28804,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 84444
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/clanlands/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/clanlands/README.md"
+}

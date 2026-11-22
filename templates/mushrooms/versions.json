@@ -1,0 +1,18 @@
+{
+  "id": "mushrooms",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/mushrooms@1.0.0/mushrooms-1.0.0.zip",
+      "sha256": "2419ad52fa5fc6a6c2f9eacd98ec630b1619748669fae7573e0c915db1a2cb54",
+      "size": 110169,
+      "minEngine": "3.1.0",
+      "files": 15,
+      "unpackedSize": 223399
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/mushrooms/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/mushrooms/README.md"
+}

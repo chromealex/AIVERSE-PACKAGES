@@ -1,0 +1,38 @@
+{
+  "schema": 2,
+  "id": "racing",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Oval Sprint",
+  "summary": "A race on an oval: starting grid, countdown, three laps against three bots, positions, wrong-way detection and returning to the track.",
+  "summary-ru": "Гонка на овале: сетка старта, отсчёт, три круга против трёх ботов, позиции, езда не в ту сторону и возврат на трассу.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "racing",
+    "vehicles",
+    "bots"
+  ],
+  "provides": {
+    "engineTemplate": "racing",
+    "module": "actor",
+    "maps": [
+      "Oval"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/racing@1.0.0/racing-1.0.0.zip",
+    "sha256": "fad66e2469eec6303b57e736285f60f504bae98e2015531d2e8d44aca3d3089f",
+    "size": 4761
+  }
+}

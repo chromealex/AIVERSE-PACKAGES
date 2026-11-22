@@ -1,0 +1,37 @@
+{
+  "schema": 2,
+  "id": "metaltide",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Metal Tide",
+  "summary": "In the style of Total Annihilation: flow economy, radar, reclaim, aircraft and nukes.",
+  "summary-ru": "Как Total Annihilation: потоки ресурсов, радар, переработка, авиация и ядерные ракеты.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "rts",
+    "flow-economy"
+  ],
+  "provides": {
+    "engineTemplate": "metaltide",
+    "module": "game",
+    "maps": [
+      "Twin Craters (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/metaltide@1.0.0/metaltide-1.0.0.zip",
+    "sha256": "a7305ecd191088309655f0aa2e467e0e7218db48fa864fb6bf0a6b854df36e92",
+    "size": 148313
+  }
+}

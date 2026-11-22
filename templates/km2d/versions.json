@@ -1,0 +1,18 @@
+{
+  "id": "km2d",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/km2d@1.0.0/km2d-1.0.0.zip",
+      "sha256": "3bb3844d54a72f968aa172dec1f02293bb7dc20bf762e6cee540ee1d4f196696",
+      "size": 174760,
+      "minEngine": "3.1.0",
+      "files": 18,
+      "unpackedSize": 280824
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/km2d/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/km2d/README.md"
+}

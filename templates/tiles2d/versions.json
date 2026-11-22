@@ -1,0 +1,18 @@
+{
+  "id": "tiles2d",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/tiles2d@1.0.0/tiles2d-1.0.0.zip",
+      "sha256": "7ec0f2497985c1812ac2be826768a6343fec4c0dd91d84ae37d6dcbf14962136",
+      "size": 278511,
+      "minEngine": "3.1.0",
+      "files": 20,
+      "unpackedSize": 370683
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/tiles2d/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/tiles2d/README.md"
+}

@@ -1,0 +1,40 @@
+{
+  "schema": 2,
+  "id": "skirmish",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Iron and Gold",
+  "summary": "Classic base building in the style of Warcraft and Red Alert: base, army, towers.",
+  "summary-ru": "Классика Warcraft/RA: база, армия, башни.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "rts",
+    "base-building"
+  ],
+  "provides": {
+    "engineTemplate": "skirmish",
+    "module": "game",
+    "maps": [
+      "River Valley (1v1)",
+      "FX Showcase",
+      "Tornado Valley (1v1, PHYSIS)",
+      "Firestorm Valley (1v1, PHYSIS)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/skirmish@1.0.0/skirmish-1.0.0.zip",
+    "sha256": "a7c0fd22c54b58e3ba75fb7ea4e888fe575419564482faad44fda05b23ce50b2",
+    "size": 1089117
+  }
+}

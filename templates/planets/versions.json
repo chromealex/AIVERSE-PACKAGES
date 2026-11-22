@@ -1,0 +1,18 @@
+{
+  "id": "planets",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/planets@1.0.0/planets-1.0.0.zip",
+      "sha256": "78fb276a77bb2838454ba9e503fea0cff09db1f1511ea7d7efc0f7ff2342d43f",
+      "size": 227701,
+      "minEngine": "3.1.0",
+      "files": 21,
+      "unpackedSize": 765860
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/planets/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/planets/README.md"
+}

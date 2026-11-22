@@ -1,0 +1,18 @@
+{
+  "id": "sporelanes",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/sporelanes@1.0.0/sporelanes-1.0.0.zip",
+      "sha256": "564834ccba4cb5eac98305bc61e00aad1134a711ddc3436eb08c480b2c577d6c",
+      "size": 58882,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 115577
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/sporelanes/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/sporelanes/README.md"
+}

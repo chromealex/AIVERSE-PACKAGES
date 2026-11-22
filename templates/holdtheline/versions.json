@@ -1,0 +1,18 @@
+{
+  "id": "holdtheline",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/holdtheline@1.0.0/holdtheline-1.0.0.zip",
+      "sha256": "11e38c36333415daf0262b2a3f80e6f47b1be44db11d6d2f457016115b6848b1",
+      "size": 28878,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 74142
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/holdtheline/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/holdtheline/README.md"
+}

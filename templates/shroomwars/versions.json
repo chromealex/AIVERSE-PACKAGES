@@ -1,0 +1,18 @@
+{
+  "id": "shroomwars",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/shroomwars@1.0.0/shroomwars-1.0.0.zip",
+      "sha256": "c32243af469e218c9011cb17c9d8f8fc856cd4c98ae000324283ee7fffd16545",
+      "size": 60937,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 125616
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/shroomwars/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/shroomwars/README.md"
+}

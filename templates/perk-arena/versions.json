@@ -1,0 +1,18 @@
+{
+  "id": "perk-arena",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/perk-arena@1.0.0/perk-arena-1.0.0.zip",
+      "sha256": "7bbc555623f8cdbd7f1929b32840d16d293f60cfbe8b0bfee31eb01680ed20f4",
+      "size": 6318,
+      "minEngine": "3.1.0",
+      "files": 6,
+      "unpackedSize": 16512
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/perk-arena/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/perk-arena/README.md"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "voxel-sandbox",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/voxel-sandbox@1.0.0/voxel-sandbox-1.0.0.zip",
+      "sha256": "03b876d26c9766672a5982e9209e6104f751bb849fb7cf771c39d5d5179174c4",
+      "size": 3183,
+      "minEngine": "3.1.0",
+      "files": 4,
+      "unpackedSize": 7114
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/voxel-sandbox/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/voxel-sandbox/README.md"
+}

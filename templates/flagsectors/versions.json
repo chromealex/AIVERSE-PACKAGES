@@ -1,0 +1,18 @@
+{
+  "id": "flagsectors",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/flagsectors@1.0.0/flagsectors-1.0.0.zip",
+      "sha256": "79f1191f124d4435e24e1764630f95ad87d15741f430a2e2a70fc67a1d0ba5a3",
+      "size": 98966,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 196780
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/flagsectors/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/flagsectors/README.md"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "ironfront",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/ironfront@1.0.0/ironfront-1.0.0.zip",
+      "sha256": "67e031bc718b16857e3b502e326f0cc5234f57e2f5bb62d7d222d0f6c215340c",
+      "size": 34242,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 90079
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/ironfront/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/ironfront/README.md"
+}

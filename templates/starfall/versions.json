@@ -1,0 +1,18 @@
+{
+  "id": "starfall",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/starfall@1.0.0/starfall-1.0.0.zip",
+      "sha256": "2f6a84f4add5e8e88d121b4c75e6888cb02e1d60a99c4d0701f6d2e158e83e08",
+      "size": 98914,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 253600
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/starfall/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/starfall/README.md"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "topdown-arena",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/topdown-arena@1.0.0/topdown-arena-1.0.0.zip",
+      "sha256": "0ef61c1553093abd805fb83e2db293fcc060b509d56cc871406e4ae38852c1af",
+      "size": 3374,
+      "minEngine": "3.1.0",
+      "files": 4,
+      "unpackedSize": 7499
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/topdown-arena/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/topdown-arena/README.md"
+}

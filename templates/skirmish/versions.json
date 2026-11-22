@@ -1,0 +1,18 @@
+{
+  "id": "skirmish",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/skirmish@1.0.0/skirmish-1.0.0.zip",
+      "sha256": "a7c0fd22c54b58e3ba75fb7ea4e888fe575419564482faad44fda05b23ce50b2",
+      "size": 1089117,
+      "minEngine": "3.1.0",
+      "files": 39,
+      "unpackedSize": 1296489
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/skirmish/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/skirmish/README.md"
+}

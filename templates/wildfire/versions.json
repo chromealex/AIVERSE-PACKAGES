@@ -1,0 +1,18 @@
+{
+  "id": "wildfire",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/wildfire@1.0.0/wildfire-1.0.0.zip",
+      "sha256": "4cb01e66d144fe165e520d611f57598ac3746fe55ab10cd3832f210bfaa001f0",
+      "size": 57390,
+      "minEngine": "3.1.0",
+      "files": 22,
+      "unpackedSize": 168616
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/wildfire/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/wildfire/README.md"
+}

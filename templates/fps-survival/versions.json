@@ -1,0 +1,18 @@
+{
+  "id": "fps-survival",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/fps-survival@1.0.0/fps-survival-1.0.0.zip",
+      "sha256": "85df957f62c58f4bc5eaa1b53739690aa581a83b0981034e49f2cfc8f04a392a",
+      "size": 23468,
+      "minEngine": "3.1.0",
+      "files": 107,
+      "unpackedSize": 77768
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/fps-survival/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/fps-survival/README.md"
+}

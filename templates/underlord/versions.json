@@ -1,0 +1,18 @@
+{
+  "id": "underlord",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/underlord@1.0.0/underlord-1.0.0.zip",
+      "sha256": "20c3f5a5a80daae0dab015fbcb0000b91d41e8519dbf3540a27f41086df5367f",
+      "size": 58497,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 136820
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/underlord/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/underlord/README.md"
+}

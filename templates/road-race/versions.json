@@ -1,0 +1,18 @@
+{
+  "id": "road-race",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/road-race@1.0.0/road-race-1.0.0.zip",
+      "sha256": "765eecc9147a5370f7026882691257744b4215fc3fdcfc6bde7a5d3ff1d74330",
+      "size": 385637,
+      "minEngine": "3.1.0",
+      "files": 10,
+      "unpackedSize": 406619
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/road-race/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/road-race/README.md"
+}

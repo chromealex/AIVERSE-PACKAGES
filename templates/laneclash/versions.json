@@ -1,0 +1,18 @@
+{
+  "id": "laneclash",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/laneclash@1.0.0/laneclash-1.0.0.zip",
+      "sha256": "b6c6cf7c9a40cd005dd71b0a9b65bcb6b6860a2c103edc123add59c2d94bbb8b",
+      "size": 159420,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 435883
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/laneclash/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/laneclash/README.md"
+}

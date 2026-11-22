@@ -1,0 +1,38 @@
+{
+  "schema": 2,
+  "id": "clanlands",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Clan Lands",
+  "summary": "In the style of Northgard: capture regions and pay for them with food.",
+  "summary-ru": "Как Northgard: захват регионов за еду.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "rts",
+    "regions",
+    "capture"
+  ],
+  "provides": {
+    "engineTemplate": "clanlands",
+    "module": "game",
+    "maps": [
+      "Fjords (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/clanlands@1.0.0/clanlands-1.0.0.zip",
+    "sha256": "f6c7197eb3ea8f779870bf2f3ba8d79c00e508afe1444e7e8599af2448432c72",
+    "size": 28804
+  }
+}

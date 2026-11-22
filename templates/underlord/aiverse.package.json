@@ -1,0 +1,37 @@
+{
+  "schema": 2,
+  "id": "underlord",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Underlord",
+  "summary": "In the style of Dungeon Keeper: digging, rooms and monsters.",
+  "summary-ru": "Как Dungeon Keeper: копать, комнаты, монстры.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "dungeon",
+    "digging"
+  ],
+  "provides": {
+    "engineTemplate": "underlord",
+    "module": "game",
+    "maps": [
+      "Two Keeps (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/underlord@1.0.0/underlord-1.0.0.zip",
+    "sha256": "20c3f5a5a80daae0dab015fbcb0000b91d41e8519dbf3540a27f41086df5367f",
+    "size": 58497
+  }
+}

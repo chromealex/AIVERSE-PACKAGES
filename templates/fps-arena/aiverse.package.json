@@ -1,0 +1,38 @@
+{
+  "schema": 2,
+  "id": "fps-arena",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Crossfire Arena",
+  "summary": "A 5 vs 5 team arena: cover, bots and a network match.",
+  "summary-ru": "Командная арена 5 на 5: укрытия, боты и сетевой матч.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "fps",
+    "arena",
+    "bots"
+  ],
+  "provides": {
+    "engineTemplate": "fps_arena",
+    "module": "actor",
+    "maps": [
+      "Crossfire Arena"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/fps-arena@1.0.0/fps-arena-1.0.0.zip",
+    "sha256": "a94b70c2334764d0989a358d27ff093bdaa46019e914b55e5b3a612d642afd27",
+    "size": 4553
+  }
+}

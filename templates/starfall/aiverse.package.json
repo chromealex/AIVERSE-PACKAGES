@@ -1,0 +1,37 @@
+{
+  "schema": 2,
+  "id": "starfall",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Starfall Sectors",
+  "summary": "In the style of StarCraft: three races that build in different ways.",
+  "summary-ru": "Как StarCraft: три расы, разные стройки.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "rts",
+    "races"
+  ],
+  "provides": {
+    "engineTemplate": "starfall",
+    "module": "game",
+    "maps": [
+      "Twin Plateaus (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ],
+  "archive": {
+    "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/starfall@1.0.0/starfall-1.0.0.zip",
+    "sha256": "2f6a84f4add5e8e88d121b4c75e6888cb02e1d60a99c4d0701f6d2e158e83e08",
+    "size": 98914
+  }
+}

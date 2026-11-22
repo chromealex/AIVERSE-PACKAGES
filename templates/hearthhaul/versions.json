@@ -1,0 +1,18 @@
+{
+  "id": "hearthhaul",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/hearthhaul@1.0.0/hearthhaul-1.0.0.zip",
+      "sha256": "59b7c56d8225f58940201a51ff27469d94c55ac74ac162581d4dc9d2889311bb",
+      "size": 130917,
+      "minEngine": "3.1.0",
+      "files": 9,
+      "unpackedSize": 296012
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/hearthhaul/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/hearthhaul/README.md"
+}

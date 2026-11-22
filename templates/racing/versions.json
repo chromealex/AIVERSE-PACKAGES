@@ -1,0 +1,18 @@
+{
+  "id": "racing",
+  "latest": "1.0.0",
+  "versions": {
+    "1.0.0": {
+      "url": "https://github.com/chromealex/AIVERSE-PACKAGES/releases/download/racing@1.0.0/racing-1.0.0.zip",
+      "sha256": "fad66e2469eec6303b57e736285f60f504bae98e2015531d2e8d44aca3d3089f",
+      "size": 4761,
+      "minEngine": "3.1.0",
+      "files": 5,
+      "unpackedSize": 21302
+    }
+  },
+  "previews": [
+    "https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/templates/racing/preview.jpg"
+  ],
+  "readme": "https://github.com/chromealex/AIVERSE-PACKAGES/blob/main/templates/racing/README.md"
+}
