@@ -5,6 +5,7 @@
   python3 tools/catalog.py pack <id> --out DIR   build the reproducible .zip of one package
   python3 tools/catalog.py publish [--dry-run]   main branch: release every new version, rewrite index.json
   python3 tools/catalog.py index                 rewrite index.json from manifests + existing releases
+  python3 tools/catalog.py views --out DIR       web preview folders view/<id>/<version>/ (needs Pillow)
   python3 tools/catalog.py archive <id> --from DIR --out DIR
                                                  big package: zip an outside payload folder and print
                                                  the "archive" fields (upload the zip, then put them
@@ -66,7 +67,11 @@ STORED_EXT = {'.png', '.jpg', '.jpeg', '.ktx2', '.dds', '.glb', '.ogg', '.mp3', 
 REQUIRED = ('id', 'version', 'kind', 'category', 'title', 'titleEn', 'summary', 'summaryEn', 'license', 'minEngine')
 TEXT_FIELDS = ('title', 'titleEn', 'summary', 'summaryEn', 'description', 'descriptionEn')
 ALLOWED = set(REQUIRED) | set(TEXT_FIELDS) | {
-    'schema', 'tags', 'authors', 'homepage', 'provides', 'dependencies', 'install', 'archive', 'previews', 'source'}
+    'schema', 'tags', 'authors', 'homepage', 'provides', 'dependencies', 'install', 'archive', 'previews', 'source',
+    'viewer'}
+PAGES = os.environ.get('CATALOG_PAGES', 'https://chromealex.github.io/AIVERSE-PLUGINS')
+VIEW_TEXTURE = 512          # web preview textures are downscaled to this size
+MATERIAL_MAPS = ('texture', 'normalMap', 'metallicRoughnessMap', 'occlusionMap', 'emissiveMap')
 
 
 def version_key(v):
@@ -185,6 +190,14 @@ def check_package(folder: Path, m: dict, seen: dict, index: dict) -> list[str]:
     for dep, spec in (m.get('dependencies') or {}).items():
         if not ID_RE.match(dep):
             err.append(f'{where}: bad dependency id "{dep}"')
+    v = m.get('viewer')
+    if v is not None:
+        if not isinstance(v, dict) or v.get('kind') not in ('materials', 'models'):
+            err.append(f'{where}: viewer.kind must be "materials" or "models"')
+        elif v['kind'] == 'materials' and not v.get('library'):
+            err.append(f'{where}: viewer.library (material library JSON inside the payload) is required')
+        elif v['kind'] == 'models' and not v.get('items'):
+            err.append(f'{where}: viewer.items ([{{"model": "path.glb", "title": ...}}]) is required')
     if not (folder / 'README.md').is_file():
         err.append(f'{where}: README.md is required (what it is, how to use it, licence and origin)')
     names = previews(folder, m)
@@ -355,6 +368,128 @@ def release_asset(tag: str, name: str):
     return None
 
 
+# ---------------------------------------------------------------- web preview views
+
+def gltf_dependencies(path: Path, rel: str) -> list[str]:
+    """Files a .gltf references (buffers, images); a .glb is self-contained unless it names uris."""
+    data = path.read_bytes()
+    try:
+        if data[:4] == b'glTF':
+            length = struct.unpack('<I', data[12:16])[0]
+            doc = json.loads(data[20:20 + length])
+        else:
+            doc = json.loads(data)
+    except Exception:
+        return []
+    base = Path(rel).parent
+    out = []
+    for key in ('buffers', 'images'):
+        for e in doc.get(key, []):
+            uri = e.get('uri')
+            if uri and not uri.startswith('data:'):
+                out.append((base / urllib.request.url2pathname(uri)).as_posix())
+    return out
+
+
+def build_view(m: dict, payload: Path, out: Path) -> dict:
+    """Web preview folder for apps/catalogview of the engine: view.json + the files it shows, with the
+    package's project-relative paths (payload under install.mount), textures downscaled."""
+    v = m['viewer']
+    mount = (m.get('install') or {}).get('mount', '')
+    out.mkdir(parents=True, exist_ok=True)
+
+    def src_of(rel):  # project-relative path -> payload file
+        r = Path(rel)
+        if mount and r.parts[:len(Path(mount).parts)] == Path(mount).parts:
+            r = Path(*r.parts[len(Path(mount).parts):])
+        return payload / r
+
+    def copy(rel, image=False):
+        dst = out / rel
+        if dst.exists():
+            return True
+        src = src_of(rel)
+        if not src.is_file():
+            print(f"{m['id']}: view file missing: {rel}")
+            return False
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        if image and src.suffix.lower() in ('.png', '.jpg', '.jpeg'):
+            from PIL import Image  # only the publish job needs Pillow
+            with Image.open(src) as im:
+                if im.mode == 'I;16' or im.mode == 'I':
+                    im = im.point(lambda x: x / 256).convert('L')
+                if max(im.size) > VIEW_TEXTURE:
+                    im.thumbnail((VIEW_TEXTURE, VIEW_TEXTURE), Image.LANCZOS)
+                im.save(dst, optimize=True)
+        else:
+            shutil.copyfile(src, dst)
+        return True
+
+    view = {'schema': 1, 'package': m['id'], 'version': m['version'], 'kind': v['kind'], 'items': []}
+    if v['kind'] == 'materials':
+        lib_rel = (Path(mount) / v['library']).as_posix() if mount else v['library']
+        library = json.loads(src_of(lib_rel).read_text(encoding='utf-8'))
+        view['library'] = lib_rel
+        view['shared'] = [lib_rel]
+        copy(lib_rel)
+        ids = v.get('items') or sorted(library)
+        titles = v.get('titles') or {}
+        repeats = v.get('repeat') or {}
+        for mid in ids:
+            entry = library.get(mid)
+            if not isinstance(entry, dict):
+                continue
+            files = [entry[k] for k in MATERIAL_MAPS if isinstance(entry.get(k), str)]
+            if not all(copy(f, image=True) for f in files):
+                continue
+            title = titles.get(mid) or mid.split('_', 1)[-1].replace('_', ' ') if '_' in mid else mid
+            item = {'id': mid, 'title': titles.get(mid, title), 'files': files}
+            if isinstance(repeats, dict) and mid in repeats:
+                item['repeat'] = repeats[mid]
+            elif isinstance(repeats, (int, float)):
+                item['repeat'] = repeats
+            view['items'].append(item)
+    else:
+        for it in v['items']:
+            rel = (Path(mount) / it['model']).as_posix() if mount else it['model']
+            if not copy(rel):
+                continue
+            files = [rel] + gltf_dependencies(src_of(rel), rel)
+            for f in files[1:]:
+                copy(f, image=Path(f).suffix.lower() in ('.png', '.jpg', '.jpeg'))
+            view['items'].append({'id': Path(it['model']).stem, 'title': it.get('title', Path(it['model']).stem),
+                                  'model': rel, 'files': files})
+    write_json(out / 'view.json', view)
+    return view
+
+
+def build_views(out: Path) -> int:
+    """view/<id>/<version>/ for the latest published version of every package with a viewer."""
+    index = read_json(INDEX, {'schema': SCHEMA, 'packages': []})
+    work = Path(tempfile.mkdtemp(prefix='views-'))
+    made = 0
+    for folder, m in packages():
+        if not m.get('viewer'):
+            continue
+        e = next((p for p in index.get('packages', []) if p['id'] == m['id']), None)
+        if not e:
+            continue
+        ver = e['latest']
+        info = e['versions'][ver]
+        archive = work / f"{m['id']}-{ver}.zip"
+        fetch(info['url'], archive)
+        if sha256_file(archive) != info['sha256']:
+            raise SystemExit(f"{m['id']}@{ver}: archive sha256 does not match the index")
+        payload = work / m['id']
+        with zipfile.ZipFile(archive) as z:
+            z.extractall(payload)
+        view = build_view(dict(m, version=ver), payload, out / 'view' / m['id'] / ver)
+        print(f"{m['id']}@{ver}: view with {len(view['items'])} item(s)")
+        made += 1
+    shutil.rmtree(work, ignore_errors=True)
+    return made
+
+
 # ---------------------------------------------------------------- index
 
 def entry_for(folder: Path, m: dict, version_info: dict) -> dict:
@@ -366,6 +501,8 @@ def entry_for(folder: Path, m: dict, version_info: dict) -> dict:
     if m.get('install', {}).get('mount'):
         e['mount'] = m['install']['mount']
     e['previews'] = [f'{RAW}/{rel}/{n}' for n in previews(folder, m)]
+    if m.get('viewer'):
+        e['viewer'] = {'kind': m['viewer']['kind']}
     e['readme'] = f'https://github.com/{REPO}/blob/main/{rel}/README.md'
     return e
 
@@ -386,7 +523,10 @@ def write_index(new_versions: dict) -> dict:
         e['versions'] = dict(sorted(versions.items(), key=lambda kv: version_key(kv[0])))
         e['latest'] = list(e['versions'])[-1]
         out.append(e)
-    index = {'schema': SCHEMA, 'repo': f'https://github.com/{REPO}',
+    for e in out:
+        if e.get('viewer'):
+            e['viewer']['url'] = f"{PAGES}/viewer/?src=../view/{e['id']}/{e['latest']}"
+    index = {'schema': SCHEMA, 'repo': f'https://github.com/{REPO}', 'pages': PAGES,
              'categories': [{'id': k, 'title': v} for k, v in CATEGORIES.items()],
              'packages': sorted(out, key=lambda p: (p['category'], p['id']))}
     write_json(INDEX, index)
@@ -459,6 +599,7 @@ def main(argv=None) -> int:
     p = sub.add_parser('pack'); p.add_argument('id'); p.add_argument('--out', type=Path, default=Path('.'))
     p = sub.add_parser('publish'); p.add_argument('--dry-run', action='store_true')
     sub.add_parser('index')
+    p = sub.add_parser('views'); p.add_argument('--out', type=Path, required=True)
     p = sub.add_parser('archive'); p.add_argument('id'); p.add_argument('--from', dest='src', type=Path, required=True)
     p.add_argument('--out', type=Path, default=Path('.'))
     a = ap.parse_args(argv)
@@ -489,6 +630,9 @@ def main(argv=None) -> int:
                     'sha256': sha256_file(z), 'size': z.stat().st_size}}, indent=2))
                 return 0
         raise SystemExit(f'no package {a.id}')
+    if a.cmd == 'views':
+        print(f'{build_views(a.out)} view(s)')
+        return 0
     if a.cmd == 'index':
         write_index({})
         return 0

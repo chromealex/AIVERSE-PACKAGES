@@ -1,0 +1,90 @@
+name: pages
+# GitHub Pages of the catalog (https://chromealex.github.io/AIVERSE-PLUGINS/):
+#   viewer/          the engine's web package preview (apps/catalogview, built with Emscripten)
+#   view/<id>/<ver>/ preview files of every package that has a "viewer" block (tools/catalog.py views)
+#   index.json       a copy of the catalog index
+# The engine website's Catalog page opens viewer/?src=../view/<id>/<ver> for the "3D" button.
+on:
+  workflow_run:
+    workflows: [publish]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      engine_ref:
+        description: 'AIVERSE branch / tag / commit to build the viewer from'
+        required: false
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+env:
+  # Until the package-catalog branch is merged into main the viewer source lives there.
+  ENGINE_REF: ${{ inputs.engine_ref || 'feature/aiv20261122_packages' }}
+jobs:
+  build:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: { ref: main }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: Preview views
+        run: |
+          pip install -q pillow
+          python3 tools/catalog.py views --out _site
+          cp index.json _site/index.json
+      - name: Engine source
+        uses: actions/checkout@v4
+        with:
+          repository: chromealex/AIVERSE
+          ref: ${{ env.ENGINE_REF }}
+          path: engine
+          sparse-checkout: |
+            /*
+            !/docs/
+            !/templates/
+            !/examples/
+            !/tests/
+          sparse-checkout-cone-mode: false
+      - name: Engine commit
+        id: eng
+        run: echo "sha=$(git -C engine rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - uses: actions/cache@v4
+        id: viewer-cache
+        with:
+          path: _viewer
+          key: catalogview-${{ steps.eng.outputs.sha }}
+      - uses: mymindstorm/setup-emsdk@v14
+        if: steps.viewer-cache.outputs.cache-hit != 'true'
+        with: { version: 3.1.74 }
+      - name: Build viewer (WebAssembly)
+        if: steps.viewer-cache.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update -q && sudo apt-get install -y -q ninja-build
+          emcmake cmake -S engine -B build/web -G Ninja -DCMAKE_BUILD_TYPE=Release \
+            -DAIVERSE_BUILD_CATALOGVIEW=ON -DAIVERSE_BUILD_CLIENT=OFF -DAIVERSE_BUILD_EDITOR=OFF \
+            -DAIVERSE_BUILD_TOOLS=OFF -DAIVERSE_BUILD_TESTS=OFF -DAIVERSE_BUILD_HEADLESS=OFF
+          cmake --build build/web --target aiverse_catalogview
+          mkdir -p _viewer && cp build/web/index.html build/web/index.js build/web/index.wasm _viewer/
+          ls -la _viewer
+      - name: Assemble
+        run: |
+          mkdir -p _site/viewer && cp _viewer/* _site/viewer/
+          echo "${{ steps.eng.outputs.sha }}" > _site/viewer/ENGINE_COMMIT
+          touch _site/.nojekyll
+          du -sh _site _site/viewer _site/view
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: _site }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

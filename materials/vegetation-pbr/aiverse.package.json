@@ -53,5 +53,38 @@
     "repo": "chromealex/AIVERSE",
     "commit": "bb3d910ed1493616be1057c53b5e59e19f5681fa",
     "path": "engine/assets/materials/vegetation"
+  },
+  "viewer": {
+    "kind": "materials",
+    "library": "materials.json",
+    "items": [
+      "oak_bark",
+      "pine_bark",
+      "birch_bark",
+      "spruce_bark",
+      "oak_leaves",
+      "shrub_leaves",
+      "spruce_leaves",
+      "pine_leaves",
+      "birch_leaves",
+      "maple_leaves",
+      "apple_leaves",
+      "willow_leaves"
+    ],
+    "titles": {
+      "oak_bark": "Oak bark",
+      "pine_bark": "Pine bark",
+      "birch_bark": "Birch bark",
+      "spruce_bark": "Spruce bark",
+      "oak_leaves": "Oak leaves",
+      "shrub_leaves": "Shrub leaves",
+      "spruce_leaves": "Spruce leaves",
+      "pine_leaves": "Pine leaves",
+      "birch_leaves": "Birch leaves",
+      "maple_leaves": "Maple leaves",
+      "apple_leaves": "Apple leaves",
+      "willow_leaves": "Willow leaves"
+    },
+    "repeat": 1.5
   }
 }
