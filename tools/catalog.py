@@ -5,7 +5,7 @@
   python3 tools/catalog.py pack <id> --out DIR   build the reproducible .zip of one package
   python3 tools/catalog.py publish [--dry-run]   main branch: release every new version, rewrite index.json
   python3 tools/catalog.py index                 rewrite index.json from manifests + existing releases
-  python3 tools/catalog.py views --out DIR       web preview folders view/<id>/<version>/ (needs Pillow)
+  python3 tools/catalog.py views --out DIR       web preview folders view/<id>/<version>/
   python3 tools/catalog.py archive <id> --from DIR --out DIR
                                                  big package: zip an outside payload folder and print
                                                  the "archive" fields (upload the zip, then put them
@@ -70,7 +70,6 @@ ALLOWED = set(REQUIRED) | set(TEXT_FIELDS) | {
     'schema', 'tags', 'authors', 'homepage', 'provides', 'dependencies', 'install', 'archive', 'previews', 'source',
     'viewer'}
 PAGES = os.environ.get('CATALOG_PAGES', 'https://chromealex.github.io/AIVERSE-PLUGINS')
-VIEW_TEXTURE = 512          # web preview textures are downscaled to this size
 MATERIAL_MAPS = ('texture', 'normalMap', 'metallicRoughnessMap', 'occlusionMap', 'emissiveMap')
 
 
@@ -393,7 +392,7 @@ def gltf_dependencies(path: Path, rel: str) -> list[str]:
 
 def build_view(m: dict, payload: Path, out: Path) -> dict:
     """Web preview folder for apps/catalogview of the engine: view.json + the files it shows, with the
-    package's project-relative paths (payload under install.mount), textures downscaled."""
+    package's project-relative paths (payload under install.mount), every file as published (textures keep their size)."""
     v = m['viewer']
     mount = (m.get('install') or {}).get('mount', '')
     out.mkdir(parents=True, exist_ok=True)
@@ -404,7 +403,7 @@ def build_view(m: dict, payload: Path, out: Path) -> dict:
             r = Path(*r.parts[len(Path(mount).parts):])
         return payload / r
 
-    def copy(rel, image=False):
+    def copy(rel):  # files go as published: textures keep their size and format
         dst = out / rel
         if dst.exists():
             return True
@@ -413,16 +412,7 @@ def build_view(m: dict, payload: Path, out: Path) -> dict:
             print(f"{m['id']}: view file missing: {rel}")
             return False
         dst.parent.mkdir(parents=True, exist_ok=True)
-        if image and src.suffix.lower() in ('.png', '.jpg', '.jpeg'):
-            from PIL import Image  # only the publish job needs Pillow
-            with Image.open(src) as im:
-                if im.mode == 'I;16' or im.mode == 'I':
-                    im = im.point(lambda x: x / 256).convert('L')
-                if max(im.size) > VIEW_TEXTURE:
-                    im.thumbnail((VIEW_TEXTURE, VIEW_TEXTURE), Image.LANCZOS)
-                im.save(dst, optimize=True)
-        else:
-            shutil.copyfile(src, dst)
+        shutil.copyfile(src, dst)
         return True
 
     view = {'schema': 1, 'package': m['id'], 'version': m['version'], 'kind': v['kind'], 'items': []}
@@ -440,7 +430,7 @@ def build_view(m: dict, payload: Path, out: Path) -> dict:
             if not isinstance(entry, dict):
                 continue
             files = [entry[k] for k in MATERIAL_MAPS if isinstance(entry.get(k), str)]
-            if not all(copy(f, image=True) for f in files):
+            if not all(copy(f) for f in files):
                 continue
             title = titles.get(mid) or mid.split('_', 1)[-1].replace('_', ' ') if '_' in mid else mid
             item = {'id': mid, 'title': titles.get(mid, title), 'files': files}
@@ -456,7 +446,7 @@ def build_view(m: dict, payload: Path, out: Path) -> dict:
                 continue
             files = [rel] + gltf_dependencies(src_of(rel), rel)
             for f in files[1:]:
-                copy(f, image=Path(f).suffix.lower() in ('.png', '.jpg', '.jpeg'))
+                copy(f)
             view['items'].append({'id': Path(it['model']).stem, 'title': it.get('title', Path(it['model']).stem),
                                   'model': rel, 'files': files})
     write_json(out / 'view.json', view)

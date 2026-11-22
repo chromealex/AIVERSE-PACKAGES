@@ -34,7 +34,6 @@ jobs:
         with: { python-version: '3.12' }
       - name: Preview views
         run: |
-          pip install -q pillow
           python3 tools/catalog.py views --out _site
           cp index.json _site/index.json
       - name: Engine source

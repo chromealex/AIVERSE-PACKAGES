@@ -44,7 +44,7 @@
 | `install.mergeJson` | JSON objects from the payload merged into project files; existing ids are never overwritten |
 | `previews` | preview images in the package folder (default: every `preview*.jpg/png/webp`) |
 | `archive` | hosted payload for big packages instead of `files/` |
-| `viewer` | web 3D preview: `{"kind": "materials", "library": "materials.json", "items": [...], "titles": {...}, "repeat": 2 or {id: metres}}` or `{"kind": "models", "items": [{"model": "models/a.glb", "title": "A"}]}`; the `pages` workflow builds `view/<id>/<version>/` (textures downscaled to 512 px) and the site's **3D preview** opens it |
+| `viewer` | web 3D preview: `{"kind": "materials", "library": "materials.json", "items": [...], "titles": {...}, "repeat": 2 or {id: metres}}` or `{"kind": "models", "items": [{"model": "models/a.glb", "title": "A"}]}`; the `pages` workflow builds `view/<id>/<version>/` (files as published, textures at full size) and the site's **3D preview** opens it |
 
 The archive (`<id>-<version>.zip`) holds `aiverse.package.json` at its root and the payload files;
 `tools/catalog.py` builds it reproducibly (fixed timestamps, sorted entries).
