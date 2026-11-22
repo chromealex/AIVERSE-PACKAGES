@@ -81,7 +81,8 @@ TEXT_KEYS = ('title', 'summary', 'description')
 TEXT_FIELDS = tuple(k + suffix for k in TEXT_KEYS for suffix in [''] + ['-' + l for l in LANGS])
 ALLOWED = set(REQUIRED) | set(TEXT_FIELDS) | {
     'schema', 'tags', 'authors', 'homepage', 'provides', 'dependencies', 'install', 'archive', 'previews', 'source',
-    'viewer'}
+    'viewer', 'official'}
+OFFICIAL_AUTHOR = 'AIVERSE'   # "official": true marks packages of the AIVERSE authors (start-screen templates)
 PAGES = os.environ.get('CATALOG_PAGES', 'https://chromealex.github.io/AIVERSE-PACKAGES')
 MATERIAL_MAPS = ('texture', 'normalMap', 'metallicRoughnessMap', 'occlusionMap', 'emissiveMap')
 
@@ -204,6 +205,17 @@ def check_package(folder: Path, m: dict, seen: dict, index: dict) -> list[str]:
     for dep, spec in (m.get('dependencies') or {}).items():
         if not ID_RE.match(dep):
             err.append(f'{where}: bad dependency id "{dep}"')
+    if 'official' in m:
+        if not isinstance(m['official'], bool):
+            err.append(f'{where}: official must be true or false')
+        elif m['official']:
+            if m.get('authors') != [OFFICIAL_AUTHOR]:
+                err.append(f'{where}: "official": true is only for packages whose authors are ["{OFFICIAL_AUTHOR}"]')
+            # pull requests: only the repository owner may bring an official package (check / accept workflows
+            # pass the pull request author and the owner)
+            author, owner = os.environ.get('CATALOG_PR_AUTHOR'), os.environ.get('CATALOG_OWNER')
+            if author and owner and author.lower() != owner.lower():
+                err.append(f'{where}: "official": true can come only from the catalog owner, not from {author}')
     v = m.get('viewer')
     if v is not None:
         if not isinstance(v, dict) or v.get('kind') not in ('materials', 'models'):
@@ -557,7 +569,10 @@ def write_index(new_versions: dict) -> dict:
         if not versions:
             continue  # nothing published yet
         write_json(folder / VERSIONS, publication(folder, m, versions))
-        out.append({'id': m['id'], 'category': m['category'], 'path': folder.relative_to(ROOT).as_posix()})
+        row = {'id': m['id'], 'category': m['category'], 'path': folder.relative_to(ROOT).as_posix()}
+        if m.get('official'):
+            row['official'] = True   # the editor's start screen lists these without opening every package
+        out.append(row)
     index = {'schema': SCHEMA, 'repo': f'https://github.com/{REPO}', 'pages': PAGES,
              'languages': ['en', *LANGS],
              'categories': [dict(id=k, **v) for k, v in CATEGORIES.items()],

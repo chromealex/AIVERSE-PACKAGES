@@ -38,6 +38,7 @@
 | `title`, `summary`, `description` | texts of the website card in **English**; translations are `<key>-<lang>`: `title-ru`, `summary-zh-CN`, … with lang one of `ru`, `zh-CN`, `ja`, `ko`, `es`, `pt-BR`, `de`, `fr` (a missing translation shows the English text) |
 | `license` | SPDX id from the allowed list |
 | `minEngine` | oldest engine version the package works with |
+| `official` | `true`: made by the AIVERSE authors (`authors` must be `["AIVERSE"]`; only the catalog owner's pull requests may set it). The index repeats the flag, and the editor's start screen lists official templates without opening every package |
 | `provides` | what it adds (material ids, type ids, template ids…): agents and `aiverse_pkg.py search` find packages by these |
 | `dependencies` | other packages and version ranges (`^1.2`, `~1.2.3`, `>=1.0.0`, exact) |
 | `install.mount` | folder inside the project where the payload is copied (`content`) |
@@ -54,7 +55,8 @@ The archive (`<id>-<version>.zip`) holds `aiverse.package.json` at its root and 
 Both are written by the `publish` workflow; never edit them by hand.
 
 - `index.json` (repository root) is short: `schema` 2, `repo`, `pages`, `languages`, `categories`
-  (`{id, title, title-ru, …}`) and `packages` → `{id, category, path}` of every published package.
+  (`{id, title, title-ru, …}`) and `packages` → `{id, category, path}` of every published package
+  (plus `official: true` for official ones).
 - `<category>/<id>/versions.json` next to the manifest: `latest`, `versions` →
   `{url, sha256, size, files, unpackedSize, minEngine}`, absolute `previews` URLs, `readme` and the
   `viewer` URL of the 3D preview.
@@ -62,6 +64,13 @@ Both are written by the `publish` workflow; never edit them by hand.
 Consumers (the engine's `aiverse_pkg.py`, the website's Catalog page) read `index.json` from
 `https://raw.githubusercontent.com/chromealex/AIVERSE-PACKAGES/main/index.json`, then
 `<path>/aiverse.package.json` and `<path>/versions.json` of the packages they need.
+
+## Project templates
+
+A `template` package holds a whole project in its payload (`game.json` at the root). The engine's
+`aiverse_pkg.py create <id> <folder>` and AIVERSE Studio's start screen create a new project from it.
+`provides.engineTemplate` names the engine folder the template came from (`templates/<id>`), `provides.maps`
+its map titles. Official templates are on the start screen; the others are found by search there.
 
 ## Dependencies between content packages
 

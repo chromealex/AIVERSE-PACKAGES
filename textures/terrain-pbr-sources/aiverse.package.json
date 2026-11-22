@@ -10,6 +10,7 @@
   "summary-ru": "Исходные изображения альбедо и высоты, из которых запекается terrain-pbr. Нужны только для перепекания.",
   "license": "MIT",
   "minEngine": "2.2.0",
+  "official": true,
   "authors": [
     "AIVERSE"
   ],

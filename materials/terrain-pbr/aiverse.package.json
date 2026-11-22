@@ -12,6 +12,7 @@
   "description-ru": "Базовый цвет, нормаль (+Y OpenGL), ORM, AO, 16-битная высота и упакованные карты terrain_color / terrain_normal для адаптера ландшафта. Ставится в materials/terrain проекта, библиотека материалов сливается в materials.json.",
   "license": "MIT",
   "minEngine": "2.2.0",
+  "official": true,
   "authors": [
     "AIVERSE"
   ],

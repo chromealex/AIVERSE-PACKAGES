@@ -12,6 +12,7 @@
   "description-ru": "Сделаны инструментом движка aiverse_terraweave_vegetation (ботанический каталог, лето, взрослые деревья, seed 42). 5 000–10 500 треугольников в LOD 0. Текстуры не копируются: модели ссылаются на materials/vegetation/textures пакета vegetation-pbr, он ставится вместе с этим. Для леса, который движок сам расставляет и растит, используйте лес TerraWeave; эти модели — для ручной расстановки.",
   "license": "MIT",
   "minEngine": "3.1.0",
+  "official": true,
   "authors": [
     "AIVERSE"
   ],

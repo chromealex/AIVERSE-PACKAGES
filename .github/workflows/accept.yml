@@ -33,6 +33,8 @@ jobs:
       - name: Release the new versions, copy packages without files/
         env:
           GH_TOKEN: ${{ github.token }}
+          CATALOG_PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          CATALOG_OWNER: ${{ github.repository_owner }}
         run: python3 tools/catalog.py accept --from _pr --pr ${{ github.event.pull_request.number }} | tee accept.log
       - name: Commit to main and close the pull request
         env:
