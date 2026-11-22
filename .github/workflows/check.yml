@@ -19,3 +19,17 @@ jobs:
         run: python3 tools/test_catalog.py
       - name: Dry-run publish (archives build, hosted archives download and verify)
         run: python3 tools/catalog.py publish --dry-run
+  merge-guard:
+    # A pull request that carries package files/ is accepted with the label "accept" (workflow accept),
+    # which releases the files as an archive; pressing Merge would put them into main's history.
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - name: Do not merge, label "accept"
+        run: |
+          if git diff --name-only "origin/${{ github.base_ref }}"...HEAD | grep -qE '^[a-z]+/[a-z0-9-]+/files/'; then
+            echo "::error::This pull request carries package files. Do not press Merge: the owner adds the label 'accept'; the files become a release archive and never enter the history of main."
+            exit 1
+          fi
