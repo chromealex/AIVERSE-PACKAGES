@@ -69,32 +69,38 @@
     {
       "id": "terrain-pbr",
       "category": "materials",
-      "path": "materials/terrain-pbr"
+      "path": "materials/terrain-pbr",
+      "official": true
     },
     {
       "id": "vegetation-pbr",
       "category": "materials",
-      "path": "materials/vegetation-pbr"
+      "path": "materials/vegetation-pbr",
+      "official": true
     },
     {
       "id": "terraweave-rocks",
       "category": "models",
-      "path": "models/terraweave-rocks"
+      "path": "models/terraweave-rocks",
+      "official": true
     },
     {
       "id": "terraweave-trees",
       "category": "models",
-      "path": "models/terraweave-trees"
+      "path": "models/terraweave-trees",
+      "official": true
     },
     {
       "id": "terrain-pbr-sources",
       "category": "textures",
-      "path": "textures/terrain-pbr-sources"
+      "path": "textures/terrain-pbr-sources",
+      "official": true
     },
     {
       "id": "vegetation-pbr-sources",
       "category": "textures",
-      "path": "textures/vegetation-pbr-sources"
+      "path": "textures/vegetation-pbr-sources",
+      "official": true
     }
   ]
 }
