@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "id": "km2d",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Green Hills",
+  "summary": "2D sprites on 3D terrain, in the style of Knights and Merchants.",
+  "summary-ru": "2D-спрайты на 3D-рельефе (K&M).",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "2d",
+    "sprites",
+    "terrain"
+  ],
+  "provides": {
+    "engineTemplate": "km2d",
+    "module": "game",
+    "maps": [
+      "Green Hills (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

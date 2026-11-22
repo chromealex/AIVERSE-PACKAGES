@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "id": "frostcrown",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Frost Crown",
+  "summary": "In the style of Warcraft III: heroes, creeps and terrain.",
+  "summary-ru": "Как Warcraft III: герои, крипы, рельеф.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "rts",
+    "heroes",
+    "terrain"
+  ],
+  "provides": {
+    "engineTemplate": "frostcrown",
+    "module": "game",
+    "maps": [
+      "Frozen Pass (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

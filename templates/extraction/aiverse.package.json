@@ -1,0 +1,34 @@
+{
+  "schema": 2,
+  "id": "extraction",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Extraction Raid",
+  "summary": "Extraction raid: containers, raid inventory, objectives, extraction points and receipts. Two maps: PvE and PvP with two raiders.",
+  "summary-ru": "Рейд с эвакуацией: контейнеры, инвентарь рейда, задачи, точки эвакуации и итог рейда. Две карты: PvE и PvP на двоих.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "extraction",
+    "raid",
+    "loot"
+  ],
+  "provides": {
+    "engineTemplate": "extraction",
+    "module": "game",
+    "maps": [
+      "Salvage Run (PvE)",
+      "Crossfire (PvP, 2 raiders)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

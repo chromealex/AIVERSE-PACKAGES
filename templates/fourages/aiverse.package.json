@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "id": "fourages",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Four Ages",
+  "summary": "In the style of Age of Empires II: four resources and ages.",
+  "summary-ru": "Как Age of Empires II: 4 ресурса и эпохи.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "rts",
+    "ages",
+    "economy"
+  ],
+  "provides": {
+    "engineTemplate": "fourages",
+    "module": "game",
+    "maps": [
+      "Highland (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "id": "topdown-arena",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Scrapyard Arena",
+  "summary": "A 1 vs 1 top-down hero arena: twin-stick control, virtual joystick and buttons, follow camera.",
+  "summary-ru": "Арена героев с видом сверху 1 на 1: управление двумя стиками, виртуальный джойстик и кнопки, камера следования.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "top-down",
+    "heroes",
+    "mobile"
+  ],
+  "provides": {
+    "engineTemplate": "topdown_arena",
+    "module": "game",
+    "maps": [
+      "Scrapyard Arena (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

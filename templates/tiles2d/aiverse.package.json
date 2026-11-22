@@ -1,0 +1,32 @@
+{
+  "schema": 2,
+  "id": "tiles2d",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Crystal Dunes",
+  "summary": "2D tiles in the style of Dune II and Red Alert.",
+  "summary-ru": "2D-тайлы как Dune II / Red Alert.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "2d",
+    "tiles"
+  ],
+  "provides": {
+    "engineTemplate": "tiles2d",
+    "module": "game",
+    "maps": [
+      "Crystal Dunes (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema": 2,
+  "id": "spellbunkers",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Spell Bunkers",
+  "summary": "Spore Lanes with a spell book, in the style of Bunker Wars.",
+  "summary-ru": "Spore Lanes + книга заклинаний (Bunker Wars).",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "capture",
+    "spells"
+  ],
+  "provides": {
+    "engineTemplate": "spellbunkers",
+    "module": "game",
+    "maps": [
+      "Rune Field (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

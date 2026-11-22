@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "id": "voxel-sandbox",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Blockworld",
+  "summary": "A block sandbox: dig, build and survive the night. Endless world, fluids, mobs, network play.",
+  "summary-ru": "Песочница из блоков: копайте, стройте, переживите ночь. Бесконечный мир, жидкости, мобы, сетевая игра.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "voxel",
+    "sandbox",
+    "survival"
+  ],
+  "provides": {
+    "engineTemplate": "voxel_sandbox",
+    "module": "voxel",
+    "maps": [
+      "Blockworld"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "id": "showcase",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Model Showcase",
+  "summary": "Iron and Gold with 3D models and animation.",
+  "summary-ru": "Iron and Gold с 3D-моделями и анимацией.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "models",
+    "animation",
+    "rts"
+  ],
+  "provides": {
+    "engineTemplate": "showcase",
+    "module": "game",
+    "maps": [
+      "River Valley (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema": 2,
+  "id": "sporelanes",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Spore Lanes",
+  "summary": "In the style of Mushroom Wars 2: columns along lanes.",
+  "summary-ru": "Как Mushroom Wars 2: колонны по линиям.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "capture",
+    "lanes"
+  ],
+  "provides": {
+    "engineTemplate": "sporelanes",
+    "module": "game",
+    "maps": [
+      "Spore Field (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

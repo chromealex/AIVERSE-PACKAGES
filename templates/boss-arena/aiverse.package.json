@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "id": "boss-arena",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Golem Pit",
+  "summary": "A top-down hero against a three-phase golem boss with adds and crawler packs: telegraphed area attacks, statuses and boss phases.",
+  "summary-ru": "Герой с видом сверху против трёхфазного босса-голема с прислужниками и стаями ползунов: атаки по площади с предупреждением, статусы и фазы босса.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "boss",
+    "top-down",
+    "encounters"
+  ],
+  "provides": {
+    "engineTemplate": "boss_arena",
+    "module": "game",
+    "maps": [
+      "Golem Pit (hero vs boss)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "id": "road-race",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Road Circuit",
+  "summary": "A race on a spline road circuit with four trucks whose wheels roll and steer.",
+  "summary-ru": "Гонка по кольцу из сплайновой дороги: четыре грузовика, колёса катятся и поворачивают.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "racing",
+    "roads",
+    "vehicles"
+  ],
+  "provides": {
+    "engineTemplate": "road_race",
+    "module": "game",
+    "maps": [
+      "Road Circuit"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

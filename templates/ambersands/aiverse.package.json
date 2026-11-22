@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "id": "ambersands",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Amber Sands",
+  "summary": "In the style of Dune II: spice harvesting, windtraps and a sandworm in the dunes.",
+  "summary-ru": "Как Dune II: спайс, ветряки, червь в песках.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "rts",
+    "desert",
+    "base-building"
+  ],
+  "provides": {
+    "engineTemplate": "ambersands",
+    "module": "game",
+    "maps": [
+      "Spice Basin (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

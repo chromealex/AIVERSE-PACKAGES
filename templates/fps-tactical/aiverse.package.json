@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "id": "fps-tactical",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Breach Protocol",
+  "summary": "Tactical rounds: buy weapons, plant and defuse the bomb.",
+  "summary-ru": "Тактические раунды: покупка оружия, установка и разминирование бомбы.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "fps",
+    "tactical",
+    "rounds"
+  ],
+  "provides": {
+    "engineTemplate": "fps_tactical",
+    "module": "actor",
+    "maps": [
+      "Crossfire Arena"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

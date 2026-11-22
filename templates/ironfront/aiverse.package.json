@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "id": "ironfront",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Iron Front",
+  "summary": "In the style of Red Alert: MCV, ore and a sidebar.",
+  "summary-ru": "Как Red Alert: MCV, руда, сайдбар.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "rts",
+    "base-building",
+    "sidebar"
+  ],
+  "provides": {
+    "engineTemplate": "ironfront",
+    "module": "game",
+    "maps": [
+      "Ore Valley (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

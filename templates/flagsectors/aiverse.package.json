@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "id": "flagsectors",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Flag Sectors",
+  "summary": "In the style of Z: sectors with flags and factories.",
+  "summary-ru": "Как Z: сектора с флагами и фабриками.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "rts",
+    "sectors",
+    "capture"
+  ],
+  "provides": {
+    "engineTemplate": "flagsectors",
+    "module": "game",
+    "maps": [
+      "Sector Strip (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

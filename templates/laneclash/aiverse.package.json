@@ -1,0 +1,32 @@
+{
+  "schema": 2,
+  "id": "laneclash",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Lane Clash",
+  "summary": "A lane battler: spawners and waves.",
+  "summary-ru": "Лайн-баттлер: спавнеры и волны.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "lanes",
+    "waves"
+  ],
+  "provides": {
+    "engineTemplate": "laneclash",
+    "module": "game",
+    "maps": [
+      "Long Lane (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}

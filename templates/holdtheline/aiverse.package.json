@@ -1,0 +1,33 @@
+{
+  "schema": 2,
+  "id": "holdtheline",
+  "version": "1.0.0",
+  "kind": "template",
+  "category": "templates",
+  "title": "Hold the Line",
+  "summary": "In the style of Company of Heroes: squads and capture points.",
+  "summary-ru": "Как Company of Heroes: отряды и точки.",
+  "license": "MIT",
+  "minEngine": "3.1.0",
+  "official": true,
+  "authors": [
+    "AIVERSE"
+  ],
+  "homepage": "https://github.com/chromealex/AIVERSE",
+  "tags": [
+    "template",
+    "rts",
+    "squads",
+    "capture-points"
+  ],
+  "provides": {
+    "engineTemplate": "holdtheline",
+    "module": "game",
+    "maps": [
+      "Crossroads (1v1)"
+    ]
+  },
+  "previews": [
+    "preview.jpg"
+  ]
+}
